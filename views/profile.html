@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPulse - Profile</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-white mb-5">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-white bg-white">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/logo.png" alt="PixelPulse Logo" class="logo">
+                    PixelPulse
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#explore">Explore</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#leaderboard">Leaderboards</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+                        <li class="nav-item"><a class="nav-link signup" href="signup">Sign Up</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="profile-section">
+            <div class="container">
+                <h1 class="mb-4 text-center">Welcome</h1>
+                <div class="user-info d-flex justify-content-start mb-5">
+                    <img src="/images/<%= user.profile_picture || 'dfpic.jpg' %>" alt="Profile picture" class="img-fluid" >
+                    <div class="ml-4">
+                        <h3><%= user.username %></h3>
+                        <p>Member since: <%= new Date(user.created_at).toLocaleDateString() %></p>
+                        <p>Role: <%= user.role %></p>
+                    </div>
+                </div>
+                <h2 class="mb-4">Projects Gallery</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="project-card rounded shadow-sm">
+                            <img src="project1.jpg" alt="Project 1" class="img-fluid">
+                            <div class="p-3">
+                                <h4>Project 1</h4>
+                                <p>Project 1 description...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="project-card rounded shadow-sm">
+                            <img src="project2.jpg" alt="Project 2" class="img-fluid">
+                            <div class="p-3">
+                                <h4>Project 2</h4>
+                                <p>Project 2 description...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="project-card rounded shadow-sm">
+                            <img src="project3.jpg" alt="Project 3" class="img-fluid">
+                            <div class="p-3">
+                                <h4>Project 3</h4>
+                                <p>Project 3 description...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer code from index.html or login.html -->
+</body>
+</html>
