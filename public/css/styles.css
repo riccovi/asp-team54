@@ -1,116 +1,42 @@
-/* CSS reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #293241;
-    background-color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-header {
-    background: #ffffff;
-    color: #3d5a80;
-    padding: 20px 0;
-    text-align: center;
+.logo {
+    width: 100px;
+    height:auto;
 }
 
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.nav-item {
+    margin-left: 1rem;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
+.navbar-toggler {
+    border: none;
 }
 
-header img { 
-    width: 55px; /* You can adjust this value */ 
-    height: auto; /* This will maintain the aspect ratio */ /*move logo to the left*/ 
-    float: left;
-     margin-left: 10px;
-    margin-right: 10px; }
-
-nav {
-    background: #ffffff;
-    padding: 10px 0;
+.signup {
+    color: #32CD32;
 }
 
-nav ul {
-    display: flex;
-    justify-content: space-between;
+.login-section {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 10px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #293241;
+.login-section h1 {
     font-weight: bold;
+    margin-bottom: 2rem;
 }
 
-nav ul li a.signup {
-    background-color: #ee6c4d;
-    padding: 10px;
-    border-radius: 5px;
-    color: #e0fbfc;
-}
-
-main {
-    padding: 20px;
-    background: #ffffff;
-}
-
-article {
-    margin-bottom: 20px;
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-}
-
-footer {
-    background: #3d5a80;
-    color: #e0fbfc;
-    text-align: center;
-    padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Media queries for larger screens */
-@media (min-width: 600px) {
-    body {
-        padding: 0 20px;
-    }
-
-    header, nav, footer {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    nav ul li {
-        margin-right: 20px;
-    }
-
-    main {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-
-    article {
-        padding: 20px;
-    }
+.login-section form {
+    background-color: white;
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
 }
