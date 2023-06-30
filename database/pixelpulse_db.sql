@@ -41,6 +41,19 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
+CREATE TABLE Projet (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `projectTitle` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `projectPicture` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+  Foreign Key (`id`) REFERENCES (`users`)
+  Foreign Key (`username`) REFERENCES (`users`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES (1,'JamaicaNegra','BlackJamaicaPassword','blackJamaica@gmail.com','student',NULL,'2023-06-23 03:26:43','2023-06-23 03:26:43'),(2,'tercer','10101010101010','tercer@g.com','student',NULL,'2023-06-23 03:32:07','2023-06-23 03:32:07'),(3,'Elon Musk','TeslaRules','elon@tesla.com','recruiter',NULL,'2023-06-23 03:38:46','2023-06-23 03:38:46'),(4,'PhantomTech','$2b$10$Z1bmQP56sBD7pED6nt7MDO9tGP9.HQpPF0U/6RhCN8Yc2IUXPSgPO','phantomthec@gmail.com','student',NULL,'2023-06-23 03:44:18','2023-06-23 03:44:18'),(5,'jose','$2b$10$J2yUJ5n6.uq6whocGHTSyOywgkByZlWzyplkOLA8o/em.xyM3MCWG','joslangarica@gmail.com','student',NULL,'2023-06-23 04:02:54','2023-06-23 04:02:54'),(6,'Maria','$2b$10$bOSwPmncUeJVrxbZ6i2zoOyK2ehW31GQseSe14QtXmI5TeAs9BOmG','maria@gmail.com','student',NULL,'2023-06-23 04:05:40','2023-06-23 04:05:40'),(7,'lalolanda','$2b$10$RuAXbcTJXCQfQ0NlmOZ6KO7splFwKve8qjlSmJwxLGJOomCyfYghW','lalolanda@gmail.com','student',NULL,'2023-06-23 04:52:50','2023-06-23 04:52:50');
