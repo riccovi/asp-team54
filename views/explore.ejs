@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>PixelPulse Explore</title>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+  
+    <main class="container">
+        <div class="row pb-5 search-buttons"> 
+            <div class="col"><button type="button" class="btn btn-info">Educational</button></div>
+            <div class="col"><button type="button" class="btn btn-info">Art</button></div>
+            <div class="col"><button type="button" class="btn btn-info">Game</button></div>
+            <div class="col"><button type="button" class="btn btn-info">Project</button></div>
+            <div class="col"><button type="button" class="btn btn-info">Theory</button></div>
+        </div>
+        <div class="filter-buttons">
+          <button type="button" class="btn btn-success btn-sm">Recent</button>
+          <button type="button" class="btn btn-success btn-sm">Popular</button>
+        </div>
+        <div class="explore-sketches bg-warning mb-2">
+            <a href="index.html"><img src="/images/dummysketch.PNG" alt="Dummy Sketch" class="img-responsive rounded explore-sketch-preview"></a>
+            <div class="description">
+                <img src="/images/avatar.png" alt="Profile Avatar" class="img-responsive logo rounded-circle comment-avatar">Joe Soap
+            </div>
+        </div>
+        <div class="explore-sketches bg-warning mb-2">
+            <a href="index.html"><img src="/images/dummysketch.PNG" alt="Dummy Sketch" class="img-responsive rounded explore-sketch-preview"></a>
+            <div class="description">
+                <img src="/images/avatar.png" alt="Profile Avatar" class="img-responsive logo rounded-circle comment-avatar">Joe Soap
+            </div>
+        </div>
+        <div class="explore-sketches bg-warning mb-2">
+            <a href="index.html"><img src="/images/dummysketch.PNG" alt="Dummy Sketch" class="img-responsive rounded explore-sketch-preview"></a>
+            <div class="description">
+                <img src="/images/avatar.png" alt="Profile Avatar" class="img-responsive logo rounded-circle comment-avatar">Joe Soap
+            </div>
+        </div>
+    </main>
+  
+    <footer>
+        <%- include('partials/footer') %>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

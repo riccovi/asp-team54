@@ -1,0 +1,85 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo {
+    width: 7%;
+    height: auto;
+}
+
+.explore-btn{
+    margin-left: 63%;
+}
+
+.col{
+    margin: 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.explore-sketch-preview{
+    width: 15%;
+    margin: 5px;
+}
+
+.comment-avatar{
+    width: 4%;
+}
+
+.description{
+    display: inline-flex;
+    justify-content: center;
+    margin-left: 10%;
+}
+
+
+
+.signup {
+    color: #32CD32;
+}
+
+.login-section {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-section h1 {
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.login-section form {
+    background-color: white;
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%; /* Gives avatar a round shape */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to make the avatar pop up */
+    transition: transform .2s; /* Animation to slightly enlarge profile picture on hover */
+    border: 2px solid #ccc; /* Adds a solid border */
+  }
+  
+  .profile-picture:hover {
+    transform: scale(1.1); /* Slightly enlarges picture on mouse hover */
+  }
+
+  .project-card img {
+    width: 100%;
+    height: 200px;  /* Adjust as needed */
+    object-fit: cover;
+}
+
+.project-card {
+    height: 100%; /* This ensures that the card height takes the full height of the grid column. */
+}

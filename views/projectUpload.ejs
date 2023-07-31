@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/darcula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/javascript/javascript.min.js"></script>
+
+
+
+    <title>PixelPulse - Upload Project</title>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <main>
+        <section class="upload-section py-5">
+            <div class="container">
+                <h1 class="mb-4 text-center">Upload Your Project</h1>
+                <div class="upload-form">
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="projectTitle">Project Title:</label>
+                            <input type="text" class="form-control" id="projectTitle" name="title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectDescription">Project Description:</label>
+                            <textarea class="form-control" id="projectDescription" name="description"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectCode">Project Code:</label>
+                            <textarea class="form-control" id="projectCode" name="code" hidden></textarea>
+                            <div id="codemirrorContainer"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectImage">Project Image:</label>
+                            <input type="file" class="form-control" id="projectImage" name="project_picture" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload Project</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <%- include('partials/footer') %>
+    </footer>
+    <script>
+        window.onload = function() {
+            var myCodeMirror = CodeMirror(document.getElementById('codemirrorContainer'), {
+                lineNumbers: true, // Show line numbers
+                theme: 'darcula', // Set the theme
+                mode: 'javascript' // Set the language
+            });
+    
+            myCodeMirror.on('change', function(cm){
+                document.getElementById('projectCode').value = cm.getValue(); // update textarea content on any change in editor
+            });
+        }
+    </script>
+    
+</body>
+
+
+</html>

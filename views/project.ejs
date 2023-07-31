@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>PixelPulse - Project</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #editor, #preview {
+            flex: 1;
+            width: 50%;
+            height: calc(100% - 60px); /* Subtracting the navbar height, assuming it's 60px */
+        }
+
+        .coding-area {
+            display: flex;
+            flex: 1;
+            height: calc(100% - 60px); /* Subtracting the navbar height, assuming it's 60px */
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <% if (project) { %>
+        <h1><%= project.title %></h1>
+        <p><%= project.description %></p>
+        <div class="coding-area">
+            <div id="editor"></div>
+            <iframe id="preview"></iframe>
+        </div>
+
+        <script>
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/monokai");
+            editor.session.setMode("ace/mode/javascript");
+
+            // Percent-decode the project code
+            var code = unescape('<%= escape(project.code) %>');
+            editor.setValue(code);
+
+            // JSON stringify the code, remove first and last characters (quotation marks)
+            var code = JSON.parse('<%- JSON.stringify(project.code) %>');
+            editor.setValue(code);
+
+            var previewFrame = document.getElementById('preview');
+            var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
+
+            // Function to run user code
+            function runCode(code) {
+                var userCodeScript = preview.createElement('script');
+                userCodeScript.textContent = code;
+                preview.body.appendChild(userCodeScript);
+            }
+
+            // Create the p5.js script tag in the iframe
+            var p5Script = preview.createElement('script');
+            p5Script.src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js";
+
+            // When p5.js script loads, set up the editor and the iframe
+            p5Script.onload = function() {
+                // Run initial code
+                runCode(code);
+
+                // Update and run code whenever the editor changes
+                editor.session.on('change', function(delta) {
+                    var newCode = editor.getValue();
+                    runCode(newCode);
+                });
+            }
+
+            preview.head.appendChild(p5Script);
+        </script>
+    <% } else { %>
+        <p>Project not found</p>
+    <% } %>
+</body>
+</html>
