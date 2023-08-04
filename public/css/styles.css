@@ -1,0 +1,195 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo {
+    width: 7%;
+    height: auto;
+}
+
+.explore-btn{
+    margin-left: 63%;
+}
+
+.col{
+    margin: 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.explore-sketch-preview{
+    width: 15%;
+    margin: 5px;
+}
+
+.comment-avatar{
+    width: 4%;
+}
+
+.description{
+    display: inline-flex;
+    justify-content: center;
+    margin-left: 10%;
+}
+
+
+
+.signup {
+    color: #32CD32;
+}
+
+.login-section {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-section h1 {
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.login-section form {
+    background-color: white;
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%; /* Gives avatar a round shape */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to make the avatar pop up */
+    transition: transform .2s; /* Animation to slightly enlarge profile picture on hover */
+    border: 2px solid #ccc; /* Adds a solid border */
+  }
+  
+  .profile-picture:hover {
+    transform: scale(1.1); /* Slightly enlarges picture on mouse hover */
+  }
+
+  .project-card img {
+    width: 100%;
+    height: 200px;  /* Adjust as needed */
+    object-fit: cover;
+}
+
+.project-card {
+    height: 100%; /* This ensures that the card height takes the full height of the grid column. */
+}
+
+.user-card {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.user-card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.profile-image-wrapper {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image {
+    border-radius: 50%;
+    max-width: 150px;
+    object-fit: cover;
+}
+
+.project-card {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-card .card-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* This helps prevent overlap between description and buttons */
+}
+
+.no-projects-text {
+    color: #777;
+    margin: 20px 0;
+}
+
+/* Button styles */
+.btn {
+    margin: 5px;
+    width: 120px; /* Ensures all buttons are the same width */
+}
+
+.project-description {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+
+#commentForm .form-group .form-control{
+    width: 120%; /* textarea and button take up full width of the form */
+    height: 100px; /* uniform height */
+}
+#commentForm .form-group .btn-primary {
+    width: 120%; /* textarea and button take up full width of the form */
+    height: 50px; /* uniform height */
+    border-radius: 5px; /* keep your previous border styling */
+}
+
+#commentForm .form-group .btn-primary {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    transition: background-color .3s;
+}
+
+#commentForm .form-group .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* improve button btn btn-primary 2 */
+.boton {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    width: 100%;
+    height: 50px;
+    transition: background-color .3s;
+    border-radius: 5px;
+}
+
+/* Add to your CSS file */
+.modal-dialog {
+    overflow: auto;
+}
+
+.modal-content {
+    overflow: auto;
+}
+
+.form-group textarea {
+    width: 100%;  /* Ensure textarea takes full width of the parent element */
+    overflow: auto;  /* Add scrolling to textarea if the content is too long */
+    resize: vertical;  /* Allows vertical resizing only */
+}
+
+.form-group {
+    width: 100%;  /* Ensure button takes full width of the parent element */
+}

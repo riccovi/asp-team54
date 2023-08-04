@@ -1,0 +1,39 @@
+<!-- Comments-->
+<% if (project.latest_comments && project.latest_comments.length) { %>
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4>Latest Comments</h4>
+        </div>
+        <div class="card-body">
+            <% project.latest_comments.forEach(function(comment) { %>
+                <div class="media">
+                    <img src="/<%= comment.profile_picture || 'default-profile-picture.png' %>" alt="User profile picture" class="mr-3 rounded-circle" style="width: 50px; height: 50px;">
+                    <div class="media-body">
+                        <h5 class="mt-0"><%= comment.username %><small class="text-muted"> - <%= new Date(comment.created_at).toLocaleString() %></small></h5>
+                        <p><%= comment.content %></p>
+                        <% if (currentUser && currentUser.id === comment.user_id) { %>
+                            <button class="btn btn-outline-danger btn-sm delete-comment-button" data-comment-id="<%= comment.id %>" data-project-id="<%= project.id %>">Delete</button>
+                          <% } %>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+<% } %>
+<div class="card mt-4">
+    <div class="card-header">
+        <h4>Post a Comment</h4>
+    </div>
+    <div class="card-body">
+        <form action="/comments/<%= project.id %>/comment" method="POST">
+            <div class="form-group">
+                <label for="content">Your Comment</label>
+                <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/commentsModule.js"></script>

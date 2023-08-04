@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/projectStyles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>PixelPulse - Project</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="/js/project.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/likeButton.js"></script>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <main class="containerProject">
+
+        <% if (project) { %>
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-8">
+                    <div class="card mb-4">
+                        <div class="card-header text-center">
+                            <img src="/<%= project.user_profile_picture || '/default-profile-picture.png' %>" alt="Creator profile picture" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
+                            <h2 class="mt-3"><%= project.title %></h2>
+                            <div class="card-subtitle text-muted">Likes: <%= project.likes %>, Comments: <%= project.comments %></div>
+                             <!-- Add Like and View Project buttons -->
+                            <div class="card-subtitle text-muted">
+                            <button type="button" data-project-id="<%= project.id %>" class="btn btn-outline-primary like-button"><i class="fas fa-heart"></i> Like</button>
+                            </div>
+                        </div>
+                       
+                        <div class="card-body">
+                            <p><%= project.description %></p>
+                            <% if (session.user && session.user.id === project.user_id) { %>
+                                <a href="/project/<%= project.id %>/edit" id="editButton" class="btn btn-warning float-right">Edit Project</a>
+                                <button id="deleteButton" class="btn btn-danger float-right">Delete Project</button>
+                            <% } %>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="coding-area row">
+                                <div id="editor" class="col-md-6"></div>
+                                <div class="col-md-6">
+                                    <iframe id="preview" class="w-200 h-100"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <%- include('partials/commentsModule') %>
+
+
+                    <!-- Hidden elements to hold project data -->
+                    <div id="projectData" style="display: none">
+                        <span id="projectCode"><%= project.code %></span>
+                        <span id="projectId"><%= project.id %></span>
+                    </div>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="alert alert-danger" role="alert">
+                Project not found. <a href="/">Go back to the homepage</a>
+            </div>
+        <% } %>
+    </main>
+
+    <%- include('partials/footer') %>
+
+>
+</body>
+</html>
