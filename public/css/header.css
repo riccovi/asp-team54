@@ -1,0 +1,218 @@
+.primary-navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: last baseline;
+    justify-content: center;
+    gap: 450px;
+    padding-top: 20px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.navigation li {
+    list-style: none;
+    padding: 0;
+}
+
+.navigation-item,
+.navigation-item a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navigation-item:hover,
+.navigation-item a:hover {
+    color: var(--font-highlighted-color);
+    text-decoration: underline;
+}
+
+.navigation-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.logo-image {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-text {
+    height: 15px;
+}
+
+.account-image {
+    display: block;
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.menu-navigation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.navigation-heading {
+    display: none;
+}
+
+.mobile-settings {
+    display: none;
+}
+
+.settings-navigation {
+    position: relative;
+}
+
+.settings-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.burger-menu {
+    position: absolute;
+    right: -10px;
+    top: 40px;
+    width: 200px;
+    height: max-content;
+    border-radius: 20px;
+    z-index: 10;
+    background-color: var(--background-color);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: none; /* Remove this when you do animations */
+}
+
+.burger-list {
+    padding-top: 20px;
+    padding-left: 0;
+}
+
+.burger-list .navigation-item {
+    width: inherit;
+    text-align: right;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+.line-spacer {
+    height: .5px;
+    border: none;
+    margin-bottom: 20px;
+    width: 175px;
+    background-color: var(--font-color);
+}
+
+.burger-menu[data-visible] {
+    display: block;
+}
+
+.burger-menu .hide-on-start {
+    visibility: hidden;
+}
+
+#on[data-off] {
+    display: block;
+}
+
+#off[data-off] {
+    display: none;
+}
+
+/* For dark mode */
+[data-dark-mode="true"] #settings-menu-light,
+[data-dark-mode="false"] #settings-menu-dark {
+    display: none;
+}
+
+[data-dark-mode="false"] #settings-menu-light,
+[data-dark-mode="true"] #settings-menu-dark {
+    display: block;
+}
+
+[data-dark-mode="true"] #logo-text-light,
+[data-dark-mode="false"] #logo-text-dark {
+    display: none;
+}
+
+[data-dark-mode="false"] #logo-text-light,
+[data-dark-mode="true"] #logo-text-dark {
+    display: block;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Styles for tablet devices */
+    .primary-navigation {
+        gap: 180px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Styles for mobile devices */
+    .primary-navigation {
+        justify-content: space-between;
+        align-items: center;
+        gap: 0px;
+        padding-inline: 20px;
+    }
+
+    .settings-navigation,
+    .sign-in-desktop {
+        display: none;
+    }
+
+    .navigation-heading,
+    .mobile-settings {
+        display: block;
+    }
+
+    .account-image {
+        display: none;
+    }
+
+    .mobile-navigation-container {
+        position: relative;
+    }
+
+    .menu-navigation {
+        position: absolute;
+        right: -10px;
+        top: 50px;
+        width: 200px;
+        height: max-content;
+        border-radius: 20px;
+        z-index: 10;
+        background-color: var(--background-color);
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        text-align: right;
+        padding-top: 20px;
+        display: none; /* Remove this when you do animations */
+    }
+
+    .menu-navigation[data-visible] {
+        display: block;
+    }
+
+    .menu-navigation .hide-on-start {
+        visibility: hidden;
+    }
+
+    .navigation-item {
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+}
