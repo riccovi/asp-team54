@@ -1,0 +1,91 @@
+:root {
+    --font-highlighted-color: rgb(152, 193, 217);
+
+    --font-weight-light: 200;
+    --font-weight-regular: 400;
+    --font-weight-bold: 600;
+
+    --font-size: 14px;
+    --paragraph-letter-spacing: 0px;
+    
+    --header-font-size: 16px;
+    --heading-letter-spacing: -.75px;
+    --main-heading-font-size: 30px;
+    --secondary-heading-font-size: 22px;
+    --third-heading-font-size: 16px;
+
+    --accessibility-menu-font-size: 10px;
+    --accessibility-widget-spacing: 16px;
+    --accessibility-button-colour: rgb(41, 50, 65);
+    --accessibility-active-colour: rgb(103, 130, 152);
+
+    --footer-font-size: 12px;
+
+    --section-spacing: 80px;
+}
+
+/* General colours */
+[data-dark-mode="true"] {
+    --background-color: rgb(50, 50, 50);
+    --font-color: rgb(210, 210, 210);
+
+    --accessibility-button-colour: rgb(79, 96, 125);
+    --accessibility-widget-colour: rgb(60, 60, 60);
+    --accessibility-mini-widget-colour: rgb(80, 80, 80);
+}
+
+[data-dark-mode="false"] {
+    --background-color: rgb(255, 255, 255);
+    --font-color: rgb(89, 89, 89);
+
+    --accessibility-button-colour: rgb(41, 50, 65);
+    --accessibility-widget-colour: rgb(230, 230, 230);
+    --accessibility-mini-widget-colour: rgb(210, 210, 210);
+}
+
+* {
+    font-family: Karla, Helvetica, sans-serif;
+    color: var(--font-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: var(--background-color);
+}
+
+p {
+    font-size: var(--font-size);
+    letter-spacing: var(--paragraph-letter-spacing);
+}
+
+header {
+    background: var(--background-color);
+
+    margin-bottom: var(--section-spacing);
+    font-size: var(--header-font-size);
+    font-weight: var(--font-weight-regular);
+}
+
+h1, h2, h3 {
+    letter-spacing: var(--heading-letter-spacing);
+    font-weight: var(--font-weight-bold);
+}
+
+h1 {
+    font-size: var(--main-heading-font-size);
+}
+
+h2 {
+    font-size: var(--secondary-heading-font-size);
+}
+
+h3 {
+    font-size: var(--third-heading-font-size);
+}
+
+footer {
+    font-weight: var(--font-weight-light);
+}

@@ -5,7 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/accessibility.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script src="/js/menu-button.js" defer ></script>
+    <script src="/js/showAccessibility.js" defer ></script>
+    <script src="/js/accessibility-button.js" defer ></script>
+    <script src="/js/accessibility.js" defer ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,15 +30,13 @@
 </head>
 <body>
     <%- include('partials/navbar') %>
-         <!-- Leaderboard section -->
-         <%- include('partials/leaderboard') %>
-         
 
-    </main>
+    <%- include('partials/accessibilityMenu') %>
 
-    <footer>
-        <%- include('partials/footer') %>
-    </footer>
+    <%- include('partials/leaderboard') %>
+
+
+    <%- include('partials/footer') %>
 
     <!-- Same scripts as your signup.html -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

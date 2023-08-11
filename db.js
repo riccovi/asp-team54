@@ -66,10 +66,6 @@ const tables = [
     )`
 ];
 
-
-
-
-
 tables.forEach((table) => {
     db.run(table, (err) => {
         if (err) {
