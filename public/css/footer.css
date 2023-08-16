@@ -1,0 +1,32 @@
+.footer-line {
+    height: .5px;
+    border: none;
+    background-color: var(--font-color);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer-container p {
+    font-size: var(--footer-font-size);
+    margin-block: 0;
+}
+
+.footer-container p:hover {
+    cursor: pointer;
+    color: var(--font-highlighted-color);
+    text-decoration: underline;
+}
+
+.footer-single-line-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
