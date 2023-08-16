@@ -1,5 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./pixelPulseDB.sqlite3');
+const Follow = require('../models/Follow');
 
 class Service {
     static async getDataWithEntities() {
@@ -53,6 +54,7 @@ class Service {
         db.all(sql, (err, rows) => {
             if (err) reject(err);
             else resolve(rows);
+         
         });
     });
 }

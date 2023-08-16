@@ -60,6 +60,19 @@
                     <h1><%= user.username %></h1>
                     <p>Member since: <%= new Date(user.created_at).toLocaleDateString() %></p>
                     <p>Role: <%= user.role %></p>
+                    <%if(loggedInUserId !== user.id) { %> <!-- Check if the profile belongs to someone else -->
+                        <% console.log(user); if(user.isFollowing) { %>
+                            <!-- Already following. Provide option to unfollow. -->
+                            <form action="/follow/<%= user.id %>/follow" method="post">
+                                <button type="submit" class="btn btn-danger mt-3">Unfollow</button>
+                            </form>
+                        <% } else { %>
+                            <!-- Not following yet. Provide option to follow. -->
+                            <form action="/follow/<%= user.id %>/follow" method="post">
+                                <button type="submit" class="btn btn-primary mt-3">Follow</button>
+                            </form>
+                        <% } %>
+                    <% } %>
                 </div>
             </div>
 

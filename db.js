@@ -63,6 +63,14 @@ const tables = [
         created_at TEXT DEFAULT CURRENT_TIMESTAMP,
         updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY(user_id) REFERENCES Users(id)
+    )`,
+    `CREATE TABLE IF NOT EXISTS Follows (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        follower_id INTEGER,
+        following_id INTEGER,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(follower_id) REFERENCES Users(id),
+        FOREIGN KEY(following_id) REFERENCES Users(id)
     )`
 ];
 

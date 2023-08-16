@@ -11,14 +11,17 @@ const uploadController = require('../controllers/uploadController');
 const projectController = require('../controllers/projectController');
 const userController = require('../controllers/userController');
 const likeController = require('../controllers/likeController');
+const followController = require('../controllers/followController');
+const commentController = require('../controllers/commentController');
 
 const profileController = require('../controllers/profileController'); 
 
 const exploreController = require('../controllers/exploreController');
 const leaderboardController = require('../controllers/leaderboardController');
-const commentController = require('../controllers/commentController');
+
 // Importing middleware
 const checkAuth = require('../middleware/checkAuth');
+const Follow = require('../models/Follow');
 
 
 // Routes
@@ -37,8 +40,6 @@ router.get("/upload", checkAuth, (req, res) => res.render('projectUpload'));  //
 router.post("/signup", uploadController.uploadSingle('profile_picture'), userController.signup);  // Signup route (registering, profile picture upload)
 router.post("/login", userController.login);  // Login route (authentication)
 
-// Profile update route (authentication required)
-
 
 router.use('/explore', exploreController);   // Explore page
 router.use('/project', projectController);  // Routes starting with '/project'
@@ -46,5 +47,8 @@ router.use('/likes', likeController);  //
 router.use('/comments', commentController);  //
 router.use(profileController)
 router.use('/leaderboard', leaderboardController);
+router.use('/follow', followController);
+
+
 
 module.exports = router;  // Exporting router for usage in other files

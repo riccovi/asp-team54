@@ -7,7 +7,7 @@ router.post("/:id/comment", checkAuth, async (req, res, next) => {
   const projectId = req.params.id;
   const userId = req.session.user.id;
   const content = req.body.content;
-
+ 
   try {
     const result = await Comment.create(userId, projectId, content);
     res.json(result);

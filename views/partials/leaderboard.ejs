@@ -22,6 +22,20 @@
                             </h4>
                             <p class="text-muted mb-4">@<%= user.role %></p>
                             <a href="/public-profile/<%= user.username %>" class="btn btn-primary btn-rounded btn-lg">Visit Profile</a>
+                            <a><% if(loggedInUserId !== user.userId) { %> <!-- Check if the profile belongs to someone else -->
+                                <% if(user.isFollowing) { %>
+                                    <!-- Already following. Provide option to unfollow. -->
+                                    <form action="/follow/<%= user.userId %>/follow" method="post">
+                                        <button type="submit" class="btn btn-primary btn-rounded btn-lg">Unfollow</button>
+                                    </form>
+                                <% } else { %>
+                                    <!-- Not following yet. Provide option to follow. -->
+                                    <form action="/follow/<%= user.userId %>/follow" method="post">
+                                        <button type="submit" class="btn btn-primary btn-rounded btn-lg">Follow</button>
+                                        
+                                    </form>
+                                <% } %>
+                            <% } %></a>
                             <div class="d-flex justify-content-between text-center mt-5">
                                 <div>
                                     <p class="mb-2 h5"><%= user.projectCount %></p>
