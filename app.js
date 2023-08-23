@@ -26,7 +26,6 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-
 // Middleware to add user to all views
 app.use(function(req, res, next) {
     res.locals.user = req.session.user;

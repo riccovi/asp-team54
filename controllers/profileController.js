@@ -4,10 +4,11 @@ const router = express.Router();
 const multer = require('multer');
 
 const Profile = require('../models/Profile'); // Profile model
-
+const Follow = require('../models/Follow'); 
 const uploadController = require('../controllers/uploadController');
 const userController = require('../controllers/userController');
 const checkAuth = require('../middleware/checkAuth');
+
 
 
 
@@ -19,7 +20,7 @@ const PUBLIC_PROFILE_VIEW = 'publicProfile';
 router.get('/profile', renderProfilePage); // Route for the main profile page
 router.get('/public-profile/:username', fetchPublicProfile); // Route for fetching a public profile
 router.post('/update', checkAuth, uploadController.uploadSingle('profile_picture'), userController.updateProfile); // Route for updating a profile
-
+;
 // Function for rendering the main profile page
 async function renderProfilePage(req, res, next) {
   try {
@@ -33,28 +34,34 @@ async function renderProfilePage(req, res, next) {
 // Function for fetching a public profile
 async function fetchPublicProfile(req, res, next) {
   const username = req.params.username;
+
+  // Check for a logged-in user. If there isn't one, set loggedInUserId to null.
+  const loggedInUserId = req.session.user ? req.session.user.id : null;
+
   try {
-    const data = await Profile.getPublicProfile(username);
-    if (!data.length) {
-      res.status(404).send('User not found');
-      return;
-    }
-    let user = {
-      id: data[0].id,
-      username: data[0].username,
-      email: data[0].email,
-      role: data[0].role,
-      profile_picture: data[0].profile_picture,
-      created_at: data[0].created_at,
-      projects: buildUserProjectsData(data)
-    };
-    res.render(PUBLIC_PROFILE_VIEW, { user });
+      const data = await Profile.getPublicProfile(username);
+      if (!data.length) {
+          res.status(404).send('User not found');
+          return;
+      }
+      let user = {
+          id: data[0].userId,
+          username: data[0].username,
+          email: data[0].email,
+          role: data[0].role,
+          profile_picture: data[0].profile_picture,
+          created_at: data[0].created_at,
+          projects: buildUserProjectsData(data),
+          isFollowing: await Follow.isFollowing(loggedInUserId, data[0].userId)
+      };
+
+      // Pass both the user and loggedInUserId to the view
+      res.render(PUBLIC_PROFILE_VIEW, { user, loggedInUserId });
   } catch (err) {
-    next(err);
+      next(err);
   }
 }
 
-// Converts raw project data to a format suitable for the user profile
 function buildUserProjectsData(data) {
   let projects = [];
   data.forEach(row => {
