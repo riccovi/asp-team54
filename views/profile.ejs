@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/accessibility.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/profile.css">
     <script src="/js/menu-button.js" defer ></script>
     <script src="/js/showAccessibility.js" defer ></script>
     <script src="/js/accessibility-button.js" defer ></script>
     <script src="/js/accessibility.js" defer ></script>
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <title>PixelPulse - Profile</title>
 </head>
 <body>
@@ -23,6 +24,31 @@
     <%- include('partials/accessibilityMenu') %>
 
     <main>
+
+      <div class="profile-main">
+        <img src="<%= user.profile_picture || 'dfpic.jpg' %>" alt="Profile picture" class="profile-page-picture">
+        
+        <div>
+          <div class="profile-top-row">
+            <div>
+              <h2><%= user.username %></h2>
+              <p class="profile-user-role"><%= user.role %> | Member since: <%= new Date(user.created_at).toLocaleDateString() %></p>
+            </div>
+            
+            <button class="profile-button">Edit Profile</button>
+          </div>
+  
+          <div class="profile-second-row">
+            <h3>x Posts</h3>
+            <h3>x Likes</h3>
+          </div>
+        </div>
+        
+      </div>
+      
+      
+
+
         <section class="profile-section">
             <div class="container mt-5">
                 <h1 class="mb-4 text-center">Welcome, <%= user.username %></h1>

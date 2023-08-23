@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/accessibility.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/leaderboard.css">
     <script src="/js/menu-button.js" defer ></script>
     <script src="/js/showAccessibility.js" defer ></script>
     <script src="/js/accessibility-button.js" defer ></script>
@@ -21,42 +22,46 @@
 
     <%- include('partials/accessibilityMenu') %>
    
-    <main class="container">
-        <section>
-            <h2>Featured Projects</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <article>
-                        <h3>Project 1</h3>
-                        <p>Description of Project 1...</p>
-                    </article>
-                </div>
-                <div class="col-md-6">
-                    <article>
-                        <h3>Project 2</h3>
-                        <p>Description of Project 2...</p>
-                    </article>
-                </div>
+    <section class="hero-container">
+        <div class="hero-section">
+            <div class="hero-text">
+                <h1>Welcome to PixelPulse</h1>
+                <p class="hero-description">It's okay if it's your first time here, we've got you covered. Let us explain it all.</p>
+                <a href="about" class="hero-link-container">
+                    <p class="hero-link">Find out more about PixelPulse</p>
+                    <img src="/images/right-arrow.png" class="hero-right-arrow">
+                </a>
             </div>
+            
+            <img src="/images/hero-image.png" class="hero-image">
+        </div>
+    </section>
+
+    <main class="home-container">
+        <section class="leaderboard-container">
+            <div class="leaderboard-heading">
+                <img src="/images/leaderboard-icon-light.png" class="leaderboard-icon" id="leaderboard-icon-light">
+                <img src="/images/leaderboard-icon-dark.png" class="leaderboard-icon" id="leaderboard-icon-dark">
+                <h2>Leaderboard</h2>
+            </div>
+            
+
+            <hr class="line-spacer">
+
+            <%- include('partials/leaderboard') %>
+        </section>
+
+        <section class="project-container">
+            <form class="search-container">
+                <input class="search-input" type="search" placeholder="Search for users or projects" aria-label="Search">
+                <span class="search-icon">
+                    <img src="/images/search-icon-light.png" class="magnifying-glass-icon" id="search-icon-light">
+                    <img src="/images/search-icon-dark.png" class="magnifying-glass-icon" id="search-icon-dark">
+                </span>
+                <button class="search-button" type="submit">Search</button>
+            </form>
         </section>
         
-        <section>
-            <h2>Latest Discussions</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <article>
-                        <h3>Discussion 1</h3>
-                        <p>Content of Discussion 1...</p>
-                    </article>
-                </div>
-                <div class="col-md-6">
-                    <article>
-                        <h3>Discussion 2</h3>
-                        <p>Content of Discussion 2...</p>
-                    </article>
-                </div>
-            </div>
-        </section>
     </main>
   
     <%- include('partials/footer') %>

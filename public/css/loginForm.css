@@ -1,0 +1,132 @@
+.back-image {
+    width: 25px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.login-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 80px;
+    margin-bottom: 110px;
+}
+
+/* Different margins for the signup page */
+.signup {
+    margin-top: -33px;
+    margin-bottom: 30px;
+}
+
+.form-container {
+    width: 320px;
+    padding-inline: 30px;
+    padding-block: 60px;
+    border-radius: 20px;
+    border: .5px solid var(--font-color)
+}
+
+.form-heading {
+    margin-block: 0;
+}
+
+.form-subheading {
+    font-weight: var(--font-weight-light);
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-label {
+    font-size: var(--font-size);
+    font-weight: var(--font-weight-regular);
+}
+
+.form-input {
+    background-color: transparent;
+    border: 1px solid var(--font-color);
+    border-radius: 5px;
+    height: 30px;
+    padding-inline: 10px;
+}
+
+.form-button {
+    width: 320px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: rgb(79, 96, 125);
+    color: rgb(230, 230, 230);
+}
+
+input[type="file"]::file-selector-button {
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: rgb(79, 96, 125);
+    color: rgb(230, 230, 230);
+}
+
+.form-button:hover,
+input[type="file"]::file-selector-button:hover,
+input[type="file"]:hover {
+    cursor: pointer;
+}
+
+.line-spacer {
+    height: .5px;
+    border: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 320px;
+    background-color: var(--font-color);
+}
+
+.switch-line {
+    text-align: center;
+}
+
+.switch-line a {
+    color: var(--font-highlighted-color);
+    font-weight: var(--font-weight-bold);
+}
+
+.switch-line a:hover { 
+    text-decoration: underline;
+}
+
+.login-image {
+    width: 200px;
+}
+
+.login-favicon {
+    width:150px;
+}
+
+[data-dark-mode="true"] #back-image-light,
+[data-dark-mode="false"] #back-image-dark {
+    display: none;
+}
+
+[data-dark-mode="false"] #back-image-light,
+[data-dark-mode="true"] #back-image-dark {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    /* Styles for mobile devices */
+    .login-image-container {
+        display: none;
+    }
+}

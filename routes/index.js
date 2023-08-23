@@ -25,9 +25,28 @@ const Follow = require('../models/Follow');
 
 
 // Routes
-router.get('/', (req, res) => res.render("index"));  // Home page
+// router.get('/', (req, res) => res.render("index"));
+
+// Home page, currently copied and pasted the leaderboards code into here, needs refactoring
+const Service = require('../models/Service');
+const UserService = require('../services/userService');
+
+router.get('/', async (req, res, next) => {
+    try {
+        const data = await Service.getLeaderboard(); // Fetch leaderboard data
+        const users = UserService.buildUserStructure(data); // Build user data for the leaderboard
+        const topUsers = await Service.getTopUsers();
+        
+        res.render('index', { users, topUsers });
+    } catch (err) {
+        next(err); // On error, pass to error handling middleware
+    }
+});
+
+
 router.get("/signup", (req, res) => res.render("signup"));  // Signup page
 router.get("/login", (req, res) => res.render("login"));  // Login page
+router.get("/about", (req, res) => res.render("about"));
 router.get('/logout', userController.logout);  // Logout route
 
 router.get("/upload", checkAuth, (req, res) => res.render('projectUpload'));  // Upload form page

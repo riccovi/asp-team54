@@ -9,52 +9,62 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/accessibility.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/loginForm.css">
     <script src="/js/menu-button.js" defer ></script>
     <script src="/js/showAccessibility.js" defer ></script>
     <script src="/js/accessibility-button.js" defer ></script>
     <script src="/js/accessibility.js" defer ></script>
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>PixelPulse - Signup</title>
 </head>
 <body>
-    <%- include('partials/navbar') %>
-
-    <%- include('partials/accessibilityMenu') %>
+    <a href="login">
+        <img src="/images/left-arrow-light.png" class="back-image" id="back-image-light">
+        <img src="/images/left-arrow-dark.png" class="back-image" id="back-image-dark">
+    </a>
 
     <main>
-        <section>
-            <div class="container">
-                <h1 class="mb-4">Create your PixelPulse account</h1>
-                <form id="signup-form" class="w-50 mx-auto" method="post" enctype="multipart/form-data">
-
+        <section class="login-section signup">
+            <div class="form-container">
+                <h1 class="form-heading">Create an account</h1>
+                <p class="form-subheading">Lets get you started with PixelPulse!</p>
+                <form method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" class="form-control" required>
+                        <label class="form-label" for="username">Username</label>
+                        <input class="form-input" type="username" id="username" name="username" required placeholder="Enter your username">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-input" type="email" id="email" name="email" required placeholder="Enter your email">
                     </div>
                     <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" class="form-control" minlength="8" required>
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-input" type="password" id="password" name="password" required placeholder="Password">
                     </div>
                     <div class="form-group">
-                        <label for="role">Role:</label>
-                        <select id="role" name="role" class="form-control" required>
+                        <label class="form-label" for="role">Role</label>
+                        <select class="form-input" id="role" name="role" required>
                             <option value="student">Student</option>
                             <option value="recruiter">Recruiter</option>
                         </select>
                     </div>
+
                     <div class="form-group">
-                        <label for="profile_picture">Profile Picture:</label>
-                        <input type="file" id="profile_picture" name="profile_picture" class="form-control-file" accept="image/png, image/jpeg">
+                        <label class="form-label" for="profilePicture">Profile Picture</label>
+                        <input type="file" id="profilePicture" name="profilePicture" accept="image/png, image/jpeg">
                     </div>
-                    <button type="submit" class="btn btn-primary mb-3">Sign up</button>
+
+                    <button class="form-button" type="submit">Sign Up</button>
                 </form>
-                <p class="text-center">Already have an account? <a href="login">Login here</a></p>
+
+                <hr class="line-spacer">
+
+                <p class="switch-line">Already have an account? <a href="login">Log in</a></p>
+            </div>
+
+            <div class="login-image-container">
+                <img src="/images/logotext-light.png" alt="PixelPulse Logo" class="login-image" id="logo-text-light">
+                <img src="/images/logotext-dark.png" alt="PixelPulse Logo" class="login-image" id="logo-text-dark">
             </div>
         </section>
     </main>

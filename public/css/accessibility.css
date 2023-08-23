@@ -49,6 +49,7 @@
     padding-inline: var(--accessibility-widget-spacing);
     background-color: var(--background-color);
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    z-index: 8;
 }
 
 .all-accessibility-options[data-visible] {
