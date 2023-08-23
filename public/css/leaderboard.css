@@ -1,0 +1,95 @@
+.leaderboard-profile-picture {
+    display: block;
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.leaderboard-username {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+tr:nth-child(odd):not(:first-child) {
+    background-color: var(--table-row-color);
+}
+
+th {
+    border-block: .5px solid var(--font-color);
+}
+
+th:nth-child(2) {
+    text-align: left;
+}
+
+th:nth-child(3),
+th:nth-child(4) {
+    text-align: center;
+}
+
+tr:not(:first-child) {
+    height: 50px;
+}
+
+/* Table heading border */
+th:first-of-type {
+    border: .5px solid var(--font-color);
+    border-right: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+th:last-of-type {
+    border: .5px solid var(--font-color);
+    border-left: none;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+/* Odd row rounded borders */
+tr:nth-child(odd) td:nth-child(1){
+    border-radius: 20px;
+    overflow: hidden;
+    border-right: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+tr:nth-child(odd) td:nth-child(4){
+    border-radius: 20px;
+    overflow: hidden;
+    border-left: none;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+tr td:nth-child(1) {
+    width: 50px;
+    text-align: center;
+}
+
+tr td:nth-child(2) {
+    width: 200px;
+}
+
+tr td:nth-child(3) {
+    width: 70px;
+    text-align: center;
+}
+
+tr td:nth-child(4) {
+    width: 70px;
+    text-align: center;
+}

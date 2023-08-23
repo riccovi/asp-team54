@@ -1,57 +1,27 @@
-<main class="mt-5">
-    <section class="py-5">
-        <div class="container h-100">
-            <h1 class="display-4 mb-4 text-center">Leaderboard</h1>
-
-            <!-- Top Users Section -->
-            <h2 class="text-center mb-4">Top Users</h2>
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <% topUsers.forEach(function(user, index) { %>
-                <div class="col-md-12 col-xl-4 mb-4">
-                    <div class="card shadow-sm" style="border-radius: 15px;">
-                        <div class="card-body text-center">
-                            <!-- Wrap image inside <a> tag to make it clickable and lead to the user's profile -->
-                            <a href="/public-profile/<%= user.username %>">
-                                <img src="<%= user.profile_picture %>" alt="<%= user.username %>'s profile picture" class="profile-img mb-4">
-                            </a>
-                            <!-- Wrap username inside <a> tag to make it clickable and lead to the user's profile -->
-                            <h4 class="card-title mb-2">
-                                <a href="/public-profile/<%= user.username %>" class="text-decoration-none text-dark">
-                                    <%= user.username %>
-                                </a>
-                            </h4>
-                            <p class="text-muted mb-4">@<%= user.role %></p>
-                            <a href="/public-profile/<%= user.username %>" class="btn btn-primary btn-rounded btn-lg">Visit Profile</a>
-                            <div class="d-flex justify-content-between text-center mt-5">
-                                <div>
-                                    <p class="mb-2 h5"><%= user.projectCount %></p>
-                                    <p class="text-muted mb-0">Projects</p>
-                                </div>
-                                <div class="px-3">
-                                    <p class="mb-2 h5"><%= user.likes %></p>
-                                    <p class="text-muted mb-0">Likes</p>
-                                </div>
-                                <div>
-                                    <p class="mb-2 h5"><%= user.comments %></p>
-                                    <p class="text-muted mb-0">Comments</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <% }); %>
-            </div>
-        </div>
-    </section>
-</main>
-
-
-<style>
-    .profile-img {
-      width: 100px; /* Adjust as needed */
-      height: 100px; /* Adjust as needed */
-      border-radius: 50%; /* Makes the image round */
-      object-fit: cover; /* Ensures the image covers the full width and height */
-    }
-    </style>
+<div>
     
+        <table>
+            <tr>
+                <th></th>
+                <th><h3>Top users</h3></th>
+                <th><h3>Projects</h3></th>
+                <th><h3>Likes</h3></th>
+            </tr>
+            <% let userCount = 1; %>
+            <% topUsers.forEach(function(user, index) { %>
+                <tr class="table-data">
+                    <td><%= userCount %>.</td>
+                    <td>
+                        <a href="/public-profile/<%= user.username %>" class="leaderboard-username">
+                            <img src="<%= user.profile_picture %>" alt="<%= user.username %>'s profile picture" class="leaderboard-profile-picture">
+                            <p><%= user.username %></p>
+                        </a>    
+                    </td>
+                    <td><p><%= user.projectCount %></p></td>
+                    <td><p><%= user.likes %></p></td>
+                </tr>
+            <% userCount++; %>
+            <% }); %>
+        </table>
+   
+</div>

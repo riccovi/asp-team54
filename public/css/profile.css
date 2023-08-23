@@ -1,0 +1,45 @@
+.profile-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 70px;
+}
+
+.profile-page-picture {
+    display: block;
+    width: 125px;
+    height: 125px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.profile-top-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+}
+
+.profile-user-role {
+    margin-top: -15px;
+    font-weight: var(--font-weight-light);
+}
+
+.profile-button {
+    width: 90px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: rgb(79, 96, 125);
+    color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.profile-second-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    margin-top: -10px;
+}
