@@ -5,6 +5,18 @@
     gap: 70px;
 }
 
+.profile-container,
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.posts-container {
+    margin-bottom: var(--section-spacing);
+}
+
 .profile-page-picture {
     display: block;
     width: 125px;
@@ -30,10 +42,13 @@
     height: 30px;
     border: none;
     border-radius: 5px;
-
     background-color: rgb(79, 96, 125);
     color: rgb(230, 230, 230);
     cursor: pointer;
+}
+
+.unfollow {
+    background-color: rgb(255, 105, 97);
 }
 
 .profile-second-row {
@@ -42,4 +57,201 @@
     align-items: center;
     gap: 30px;
     margin-top: -10px;
+}
+
+.profile-line {
+    width: 940px;
+    margin-top: 100px;
+}
+
+.posts-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.post-icon {
+    width: 14px;
+    height: 14px;
+}
+
+.post-text {
+    font-weight: var(--font-weight-bold);
+}
+
+.profile-cards-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.upload-project {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-link {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+.upload-icon {
+    width: 60px;
+    height: 60px; 
+}
+
+.profile-card-image {
+    display: block;
+    width: 300px;
+    height: 300px;
+    aspect-ratio: 1;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    width: 940px;
+}
+
+.profile-card-link {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.profile-card-body {
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    height: max-content;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, .7);
+    opacity: 0;
+}
+
+.profile-card-body:hover,
+.profile-card-link:focus .profile-card-body {
+    opacity: 1;
+}
+
+.profile-card-title {
+    color: rgb(210, 210, 210);
+    margin-top: 120px;
+    margin-bottom: 0;
+}
+
+.profile-card-likes-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;  
+}
+
+.profile-card-likes-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.profile-card-likes {
+    color: rgb(210, 210, 210);
+}
+
+[data-dark-mode="true"] #post-icon-light,
+[data-dark-mode="false"] #post-icon-dark {
+    display: none;
+}
+
+[data-dark-mode="false"] #post-icon-light,
+[data-dark-mode="true"] #post-icon-dark {
+    display: block;
+}
+
+[data-dark-mode="true"] #upload-icon-light,
+[data-dark-mode="false"] #upload-icon-dark {
+    display: none;
+}
+
+[data-dark-mode="false"] #upload-icon-light,
+[data-dark-mode="true"] #upload-icon-dark {
+    display: block;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Styles for tablet devices */
+    .profile-card {
+        gap: 20px;
+        width: 750px;
+    }
+
+    .secondary-post,
+    .upload-project,
+    .profile-card-body,
+    .profile-card-image,
+    .profile-card-link {
+        width: 230px;
+        height: 230px;
+    }
+
+    .profile-line {
+        width: 750px;
+    }
+}
+
+@media (max-width: 767px) {
+    .profile-container {
+        margin-top: -50px;
+    }
+
+    .profile-main {
+        gap: 30px;
+    }
+
+    .profile-top-row {
+        flex-direction: column-reverse;
+        gap: 0;
+        align-items: flex-start;
+    }
+
+    .profile-page-picture {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-card {
+        gap: 1vw;
+        width: 100%;
+    }
+
+    .secondary-post,
+    .upload-project,
+    .profile-card-body,
+    .profile-card-image,
+    .profile-card-link {
+        width: 31vw;
+        height: 31vw;
+    }
+
+    .profile-line {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .upload-icon {
+        width: 30px;
+        height: 30px; 
+    }
 }

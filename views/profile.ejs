@@ -24,110 +24,91 @@
     <%- include('partials/accessibilityMenu') %>
 
     <main>
-
-      <div class="profile-main">
-        <img src="<%= user.profile_picture || 'dfpic.jpg' %>" alt="Profile picture" class="profile-page-picture">
-        
-        <div>
-          <div class="profile-top-row">
-            <div>
-              <h2><%= user.username %></h2>
-              <p class="profile-user-role"><%= user.role %> | Member since: <%= new Date(user.created_at).toLocaleDateString() %></p>
+      <div class="profile-container">
+        <div class="profile-main">
+          <img src="<%= user.profile_picture || 'dfpic.jpg' %>" alt="Profile picture" class="profile-page-picture">
+          
+          <div>
+            <div class="profile-top-row">
+              <div>
+                <h2><%= user.username %></h2>
+                <p class="profile-user-role"><%= user.role %> | Member since: <%= new Date(user.created_at).toLocaleDateString() %></p>
+              </div>
+              
+              <button class="profile-button">Edit Profile</button>
             </div>
-            
-            <button class="profile-button">Edit Profile</button>
-          </div>
-  
-          <div class="profile-second-row">
-            <h3>x Posts</h3>
-            <h3>x Likes</h3>
+    
+            <div class="profile-second-row">
+              <h3>x Posts</h3>
+              <h3>x Likes</h3>
+            </div>
           </div>
         </div>
-        
       </div>
       
-      
+      <hr class="profile-line">
 
-
-        <section class="profile-section">
-            <div class="container mt-5">
-                <h1 class="mb-4 text-center">Welcome, <%= user.username %></h1>
-                <div class="card mb-5">
-                    <div class="card-body d-flex flex-column align-items-center text-center">
-                        <img src="<%= user.profile_picture || 'dfpic.jpg' %>" alt="Profile picture" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
-                        <p>Member since: <%= new Date(user.created_at).toLocaleDateString() %></p>
-                        <p>Role: <%= user.role %></p>
-                        <a class="btn btn-primary" href="/upload">Upload Project</a>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-secondary mt-3" data-toggle="modal" data-target="#editProfileModal">Edit Profile</button>
-                        
-                         
-                    </div>
-                    
-                </div>
-                
-                <!-- Edit Profile Modal -->
-                <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="editProfileModalLabel">Update Profile</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <form action="/profile/update" method="POST" enctype="multipart/form-data">
-                        <div class="modal-body">
-                          <div class="form-group">
-                              <label for="username">Username:</label>
-                              <input type="text" class="form-control" id="username" name="username" value="<%= user.username %>">
-                          </div>
-                          <div class="form-group">
-                              <label for="email">Email:</label>
-                              <input type="email" class="form-control" id="email" name="email" value="<%= user.email %>">
-                          </div>
-                          <div class="form-group">
-                              <label for="role">Role:</label>
-                              <input type="text" class="form-control" id="role" name="role" value="<%= user.role %>">
-                          </div>
-                          <div class="form-group">
-                              <label for="profile_picture">Profile Picture:</label>
-                              <input type="file" class="form-control-file" id="profile_picture" name="profile_picture">
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </form>
-                    </div>
+      <section class="posts-container">
+        <div class="posts-heading">
+          <img src="/images/posts-icon-light.png" class="post-icon" id="post-icon-light">
+          <img src="/images/posts-icon-dark.png" class="post-icon" id="post-icon-dark">
+          <p class="post-text">POSTS</p>
+        </div>
+  
+        <div class="profile-card">
+          <% let displayUploadCard = true; %>
+  
+          <% projects.forEach(project => { %>
+            <% if(displayUploadCard) { %>
+              <div class="upload-project">
+                <a href="/upload" class="upload-link">
+                  <img src="/images/upload-icon-light.png" class="upload-icon" id="upload-icon-light">
+                  <img src="/images/upload-icon-dark.png" class="upload-icon" id="upload-icon-dark">
+                  <p>Upload Project</p>
+                </a>
+              </div>
+  
+              <% displayUploadCard = false; %>
+            <% } %>
+  
+            <a href="/project/<%= project.id %>" class="profile-card-link">
+              <img src="<%= project.project_picture || '/images/default_project_image.jpg' %>" alt="<%= project.title %>" class="profile-card-image">
+              <div class="profile-card-body">
+                  <h2 class="profile-card-title"><%= project.title %></h2>
+                  <div class="profile-card-likes-container">
+                    <img src="/images/like-icon-dark.png" class="profile-card-likes-icon">
+                    <h3 class="profile-card-likes"><%= project.likes || 0 %></h3>
                   </div>
-                </div>
+                  
+              </div>
+            </a>
+          <% }); %>
+        </div>
+      </section>
 
-                <h2 class="mb-4">Projects Gallery</h2>
-                <div class="row">
-                    <% projects.forEach(project => { %>
-                        <div class="col-md-4 mb-4">
-                            <div class="card shadow-sm h-100">
-                                <img src="<%= project.project_picture || '/images/default_project_image.jpg' %>" alt="<%= project.title %>" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title"><%= project.title %></h5>
-                                    <p class="card-text"><%= project.description.substring(0, 200) + (project.description.length > 200 ? "..." : "") %></p>
-                                    <a href="/project/<%= project.id %>" class="btn btn-primary">See More</a>
-                                    <p>Likes: <%= project.likes || 0 %></p>
-                                </div>
-                            </div>
-                        </div>
-                    <% }); %>                        
-                </div>
-            </div>
-        </section>
+      <form action="/profile/update" method="POST" enctype="multipart/form-data">
+        <div>
+          <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" class="form-control" id="username" name="username" value="<%= user.username %>">
+          </div>
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" name="email" value="<%= user.email %>">
+          </div>
+          <div class="form-group">
+              <label for="role">Role:</label>
+              <input type="text" class="form-control" id="role" name="role" value="<%= user.role %>">
+          </div>
+          <div class="form-group">
+              <label for="profile_picture">Profile Picture:</label>
+              <input type="file" class="form-control-file" id="profile_picture" name="profile_picture">
+          </div>
+        </div>
+        <button type="submit">Save changes</button>
+      </form>
     </main>
     
     <%- include('partials/footer') %>
-
-    <!-- include the bootstrap.js file here to make modal work -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

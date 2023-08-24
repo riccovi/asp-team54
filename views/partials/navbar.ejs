@@ -40,6 +40,9 @@
                 </div>
             </div>
             
+            <% if (user) { %>
+                <a href="/profile"><img src="<%= user.profile_picture %>" class="account-image"></a> <!-- Show profile button only if user is logged in -->
+            <% } %>
     
             <div class="settings-navigation">
                 <div class="settings-menu">
@@ -65,10 +68,6 @@
                     </ul>
                 </div>
             </div>
-    
-            <% if (user) { %>
-                <a href="/profile"><img src="<%= user.profile_picture %>" class="account-image"></a> <!-- Show profile button only if user is logged in -->
-            <% } %>
         </ul>
     </nav>
 </header>

@@ -168,7 +168,7 @@
         justify-content: space-between;
         align-items: center;
         gap: 0px;
-        padding-inline: 20px;
+        padding-left: 10px;
     }
 
     .settings-navigation,
