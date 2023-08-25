@@ -4,106 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/accessibility.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <script src="/js/menu-button.js" defer ></script>
+    <script src="/js/showAccessibility.js" defer ></script>
+    <script src="/js/accessibility-button.js" defer ></script>
+    <script src="/js/accessibility.js" defer ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600&display=swap" rel="stylesheet">
     <title>PixelPulse - <%= user.username %> Profile</title>
-    <style>
-        /* Custom styles for the publicProfile page */
-        .profile-section {
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-
-        .profile-picture-container {
-            width: 150px;
-            height: 150px;
-            overflow: hidden;
-            border-radius: 50%;
-        }
-
-        .profile-picture {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .project-card {
-            height: 100%;
-        }
-
-        .project-image {
-            height: 200px;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .project-description {
-            max-height: 75px;
-            overflow: hidden;
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation bar -->
     <%- include('partials/navbar') %>
 
-    <!-- Main content -->
-    <main class="profile-section">
-        <div class="container">
-            <!-- User profile section -->
-            <div class="user-info d-flex align-items-center justify-content-center mb-4">
-                <div class="profile-picture-container">
-                    <img src="/<%= user.profile_picture || 'default_profile_image.jpg' %>" alt="<%= user.username %>'s profile picture" class="profile-picture">
-                </div>
-                <div class="user-details ml-4">
-                    <h1><%= user.username %></h1>
-                    <p>Member since: <%= new Date(user.created_at).toLocaleDateString() %></p>
-                    <p>Role: <%= user.role %></p>
-                    <%if(loggedInUserId !== user.id) { %> <!-- Check if the profile belongs to someone else -->
+    <%- include('partials/accessibilityMenu') %>
+
+    <main>
+        <div class="profile-container">
+            <div class="profile-main">
+                <img src="/<%= user.profile_picture || 'dfpic.jpg' %>" alt="Profile picture" class="profile-page-picture">
+
+                <div>
+                    <div class="profile-top-row">
+                        <div>
+                        <h2><%= user.username %></h2>
+                        <p class="profile-user-role"><%= user.role %> | Member since: <%= new Date(user.created_at).toLocaleDateString() %></p>
+                        </div>
+
+                        <%if(loggedInUserId !== user.id) { %>
                         <% if(user.isFollowing) { %>
                             <!-- Already following. Provide option to unfollow. -->
                             <form action="/follow/<%= user.id %>/follow" method="post">
-                                <button type="submit" class="btn btn-danger mt-3">Unfollow</button>
+                                <button type="submit" class="profile-button unfollow">Unfollow</button>
                             </form>
                         <% } else { %>
                             <!-- Not following yet. Provide option to follow. -->
                             <form action="/follow/<%= user.id %>/follow" method="post">
-                                <button type="submit" class="btn btn-primary mt-3">Follow</button>
+                                <button type="submit" class="profile-button">Follow</button>
                             </form>
                         <% } %>
-                    <% } %>
-                </div>
-            </div>
-
-            <!-- Projects section -->
-     <!-- Projects section -->
-<h2 class="mb-4">Projects Gallery</h2>
-<div class="row">
-    <% user.projects.forEach(project => { %>
-        <div class="col-md-4 mb-4">
-            <div class="project-card rounded shadow-sm">
-                <img src="/<%= project.project_picture || '/images/default_project_image.jpg' %>" alt="<%= project.title %>" class="img-fluid project-image">
-                <div class="p-3">
-                    <h4><%= project.title %></h4>
-                    <p class="project-description"><%= project.description.substring(0, 200) + (project.description.length > 250 ? "..." : "") %></p>
-                    <a href="/project/<%= project.id %>" class="btn btn-primary">See More</a>
-                    <p>Likes: <%= project.likes || 0 %></p>
+                        <% } %>
+                    </div>
+            
+                    <div class="profile-second-row">
+                        <h3>x Posts</h3>
+                        <h3>x Likes</h3>
+                    </div>
                 </div>
             </div>
         </div>
-    <% }); %>
-</div>
+    
+        <hr class="profile-line">
 
+        <div class="posts-container">
+        <div class="posts-heading">
+            <img src="/images/posts-icon-light.png" class="post-icon">
+            <p class="post-text">POSTS</p>
+        </div>
+    
+        <div class="profile-card"> 
+            <% user.projects.forEach(project => { %>
+            <a href="/project/<%= project.id %>" class="profile-card-link">
+                <img src="/<%= project.project_picture || '/images/default_project_image.jpg' %>" alt="<%= project.title %>" class="profile-card-image">
+                <div class="profile-card-body">
+                    <h2 class="profile-card-title"><%= project.title %></h2>
+                    <div class="profile-card-likes-container">
+                    <img src="/images/like-icon-dark.png" class="profile-card-likes-icon">
+                    <h3 class="profile-card-likes"><%= project.likes || 0 %></h3>
+                    </div>
+                    
+                </div>
+            </a>
+            <% }); %>
+        </div>
         </div>
     </main>
 
-    <!-- Footer section -->
     <footer>
         <%- include('partials/footer') %>
     </footer>
-
-    <!-- JavaScript scripts -->
-    <!-- Add any necessary JavaScript scripts here -->
 </body>
 </html>

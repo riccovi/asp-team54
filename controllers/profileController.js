@@ -10,8 +10,6 @@ const userController = require('../controllers/userController');
 const checkAuth = require('../middleware/checkAuth');
 
 
-
-
 // Constants
 const PROFILE_VIEW = 'profile';
 const PUBLIC_PROFILE_VIEW = 'publicProfile';

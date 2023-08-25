@@ -1,11 +1,3 @@
-.accessibility-container[data-visible="true"] {
-    display: block;
-}
-
-.accessibility-container[data-visible="false"] {
-    display: none;
-}
-
 .accessibility-button {
     position: fixed;
     left: 0;
@@ -14,6 +6,14 @@
     height: 30px;
     padding: 10px;
     background-color: var(--accessibility-button-colour);
+}
+
+.accessibility-container[data-visible="true"] {
+    display: block;
+}
+
+.accessibility-container[data-visible="false"] {
+    display: none;
 }
 
 .accessibility-button:hover {
@@ -189,6 +189,12 @@
 }
 
 [data-dark-mode="true"] #dark-mode {
+    background-color: var(--accessibility-active-colour);
+    border-color: var(--accessibility-active-colour);
+}
+
+[data-highlight-title="true"] #highlight-title,
+[data-highlight-link="true"] #highlight-link {
     background-color: var(--accessibility-active-colour);
     border-color: var(--accessibility-active-colour);
 }
