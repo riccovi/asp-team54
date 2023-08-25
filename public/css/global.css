@@ -57,10 +57,6 @@
     color: var(--font-color);
 }
 
-a {
-    text-decoration: none;
-}
-
 body {
     background: var(--background-color);
 }
@@ -97,4 +93,24 @@ h3 {
 
 footer {
     font-weight: var(--font-weight-light);
+}
+
+[data-highlight-title="true"] h1, 
+[data-highlight-title="true"] h2,
+[data-highlight-title="true"] h3 {
+   text-decoration: underline;
+}
+
+[data-highlight-title="false"] h1, 
+[data-highlight-title="false"] h2,
+[data-highlight-title="false"] h3 {
+    text-decoration: none;
+}
+
+[data-highlight-link="true"] a {
+   text-decoration: underline;
+}
+
+[data-highlight-link="false"] a {
+    text-decoration: none;
 }
