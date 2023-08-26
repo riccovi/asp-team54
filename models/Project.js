@@ -52,7 +52,43 @@ class Project {
             });
         });
     }
+    // static async findByTag(tags) {
+    //     return new Promise((resolve, reject) => {
+    //         const sql = `
+    //             SELECT 
+    //                 Projects.*, 
+    //                 Users.profile_picture as user_profile_picture,
+    //                 COUNT(DISTINCT Likes.id) as likes,
+    //                 COUNT(DISTINCT Comments.id) as comments,
+    //                 (
+    //                   SELECT GROUP_CONCAT(content, '|||')
+    //                   FROM (
+    //                     SELECT content
+    //                     FROM Comments
+    //                     WHERE project_id = Projects.id
+    //                     ORDER BY created_at DESC
+    //                     LIMIT 2
+    //                   )
+    //                 ) as latest_comments
+    //             FROM Projects 
+    //             LEFT JOIN Users ON Projects.user_id = Users.id 
+    //             LEFT JOIN Likes ON Projects.id = Likes.project_id
+    //             LEFT JOIN Comments ON Projects.id = Comments.project_id
+    //             WHERE Projects.id = ?
+    //             GROUP BY Projects.id`;
     
+    //         db.get(sql, [id], (err, row) => {
+    //             if (err) reject(err);
+    //             else {
+    //                 if (row) {
+    //                     // Split latest_comments into an array
+    //                     row.latest_comments = row.latest_comments ? row.latest_comments.split('|||') : [];
+    //                 }
+    //                 resolve(row);
+    //             }
+    //         });
+    //     });
+    // }
 
     static async deleteProjectById(id, userId) {
         return new Promise((resolve, reject) => {
