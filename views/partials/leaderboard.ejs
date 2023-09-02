@@ -10,7 +10,7 @@
             <% let userCount = 1; %>
             <% topUsers.forEach(function(user, index) { %>
                 <tr class="table-data">
-                    <td><%= userCount %>.</td>
+                    <td><p><%= userCount %>.</p></td>
                     <td>
                         <a href="/public-profile/<%= user.username %>" class="leaderboard-username">
                             <img src="<%= user.profile_picture %>" alt="<%= user.username %>'s profile picture" class="leaderboard-profile-picture">
