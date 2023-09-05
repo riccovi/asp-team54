@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/accessibility.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/informationalPages.css">
+    <script src="/js/menu-button.js" defer ></script>
+    <script src="/js/showAccessibility.js" defer ></script>
+    <script src="/js/accessibility-button.js" defer ></script>
+    <script src="/js/accessibility.js" defer ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600&display=swap" rel="stylesheet">
+    <title>PixelPulse - Help</title>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <%- include('partials/accessibilityMenu') %>
+   
+    <main>
+        <div class="information-container">
+            <h1>We understand you might need a little more help</h1>
+            <hr class="line-spacer">
+
+            <h2>Creating an account / Logging in</h2>
+            <h3>Creating an account</h3>
+            <p>To create an account please follow the following steps:
+                <br>
+                1. Click "Log in" in the navigation bar at the top of your screen (if you're on mobile this link can be found in the "menu").
+                <br>
+                2. On the log in page you'll see an option below the log in fields to sign up. Click "Sign up"
+                <br>
+                3. Enter all your details and click the blue "Sign Up" button to create your account!
+            </p>
+            <h3>Logging in</h3>
+            <p>To log into your account please follow the following steps:
+                <br>
+                1. Click "Log in" in the navigation bar at the top of your screen (if you're on mobile this link can be found in the "menu").
+                <br>
+                2. Enter all your details and click the blue "Log in" button to log into your account!
+            </p>
+
+            <h2>Uploading a project</h2>
+            <p>To upload a project you must be signed in. Once you're signed in please follow the following steps:
+                <br>
+                1. Click on your profile image in the top right (or click "view profile" in the "menu" on mobile) to navigate to  your profile page.
+                <br>
+                2. Under "POSTS" you should see the button "Upload Project", click it.
+                <br>
+                3. Give your project a title, description, and image.
+                <br>
+                4. When copying your p5.js code, you must surround your code with "let s = (p) => {}", and call every p5.js function with the prefix "p"; <i>'p.setup = function(){}'</i> as an example.
+            </p>
+
+            <h2>Viewing content</h2>
+            <p>You can view content in a variety of ways:</p>
+            <h3>The home page</h3>
+            <p>The most recently posted and popular posts are shown directly on the homepage. Content from any users you follow is also shown here.</p>
+            <h3>The explore page</h3>
+            <p>Explore is the place to go if you're looking for module specific content. This page curates all the content into each UoL module.</p>
+            <h3>User profiles</h3>
+            <p>You can view all the content a specific user posted by going directly to their page!</p>
+
+            <h2>Engaging with the community</h2>
+            <p>PixelPulse allows you to like, comment and follow any posts or users you like! We strongly encourage you engage with the content as we use your engagement to curate the best content on the platform.</p>
+
+            <h2>Accessibility</h2>
+            <p>PixelPulse has an accessibility menu available to users that might want to change the look and feel of the application. If you can not see the menu, click on the gear icon (or "menu" on mobile) and turn accessibility menu ON. Once the menu is ON a button will be present in the top left of your screen. Clicking this button will open up a menu full of settings for you to adjust to better suit your needs and improve your experience.</p>
+        </div>
+    </main>
+  
+    <%- include('partials/footer') %>
+</body>
+</html>
