@@ -1,27 +1,23 @@
-<div>
-    
-        <table>
-            <tr>
-                <th></th>
-                <th><h3>Top users</h3></th>
-                <th><h3>Projects</h3></th>
-                <th><h3>Likes</h3></th>
-            </tr>
-            <% let userCount = 1; %>
-            <% topUsers.forEach(function(user, index) { %>
-                <tr class="table-data">
-                    <td><p><%= userCount %>.</p></td>
-                    <td>
-                        <a href="/public-profile/<%= user.username %>" class="leaderboard-username">
-                            <img src="<%= user.profile_picture %>" alt="<%= user.username %>'s profile picture" class="leaderboard-profile-picture">
-                            <p><%= user.username %></p>
-                        </a>    
-                    </td>
-                    <td><p><%= user.projectCount %></p></td>
-                    <td><p><%= user.likes %></p></td>
-                </tr>
-            <% userCount++; %>
-            <% }); %>
-        </table>
-   
-</div>
+<table>
+    <tr>
+        <th></th>
+        <th><h3>Top users</h3></th>
+        <th><h3>Projects</h3></th>
+        <th><h3>Likes</h3></th>
+    </tr>
+    <% let userCount = 1; %>
+    <% topUsers.forEach(function(user, index) { %>
+        <tr class="table-data">
+            <td><p><%= userCount %>.</p></td>
+            <td>
+                <a href="/public-profile/<%= user.username %>" class="leaderboard-username">
+                    <img src="<%= user.profile_picture %>" alt="<%= user.username %>'s profile picture" class="leaderboard-profile-picture">
+                    <p><%= user.username %></p>
+                </a>    
+            </td>
+            <td><p><%= user.projectCount %></p></td>
+            <td><p><%= user.likes %></p></td>
+        </tr>
+    <% userCount++; %>
+    <% }); %>
+</table>
