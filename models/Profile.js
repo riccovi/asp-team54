@@ -5,15 +5,18 @@ class Profile {
     static async getPublicProfile(username) {
         return new Promise((resolve, reject) => {
             let sql = `
-            SELECT  
+            SELECT
                 Users.id AS userId, Users.username, Users.email, Users.role, Users.profile_picture, Users.created_at,
                 Projects.id AS projectId, Projects.title, Projects.description, Projects.project_picture, 
-                COUNT(Likes.id) as likes
-            FROM Users 
+                COUNT(DISTINCT Likes.id) as likes,
+                GROUP_CONCAT(Tags.name) AS tags
+            FROM Users
             LEFT JOIN Projects ON Users.id = Projects.user_id
             LEFT JOIN Likes ON Projects.id = Likes.project_id
+            LEFT JOIN ProjectTags ON Projects.id = ProjectTags.project_id
+            LEFT JOIN Tags ON ProjectTags.tag_id = Tags.id
             WHERE Users.username = ?
-            GROUP BY Projects.id`;
+            GROUP BY Projects.id;`;
 
             db.all(sql, [username], (err, rows) => {
                 if (err) reject(err);
@@ -38,11 +41,6 @@ class Profile {
             });
         });
     }
-    
-    
-
-  
- 
 }
 
 module.exports = Profile;

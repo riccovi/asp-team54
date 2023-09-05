@@ -19,6 +19,9 @@
     --accessibility-button-colour: rgb(41, 50, 65);
     --accessibility-active-colour: rgb(103, 130, 152);
 
+    --button-color: rgb(41, 50, 65);
+    --button-highlighted-color: rgb(152, 193, 217);
+
     --footer-font-size: 12px;
 
     --section-spacing: 80px;
@@ -29,6 +32,9 @@
     --background-color: rgb(50, 50, 50);
     --font-color: rgb(210, 210, 210);
 
+    --search-input-color: rgb(75, 75, 75);
+    --table-row-color: rgb(65, 65, 65);
+
     --accessibility-button-colour: rgb(79, 96, 125);
     --accessibility-widget-colour: rgb(60, 60, 60);
     --accessibility-mini-widget-colour: rgb(80, 80, 80);
@@ -38,6 +44,9 @@
     --background-color: rgb(255, 255, 255);
     --font-color: rgb(89, 89, 89);
 
+    --search-input-color: rgb(240, 240, 240);
+    --table-row-color: rgb(240, 240, 240);
+
     --accessibility-button-colour: rgb(41, 50, 65);
     --accessibility-widget-colour: rgb(230, 230, 230);
     --accessibility-mini-widget-colour: rgb(210, 210, 210);
@@ -46,10 +55,6 @@
 * {
     font-family: Karla, Helvetica, sans-serif;
     color: var(--font-color);
-}
-
-a {
-    text-decoration: none;
 }
 
 body {
@@ -88,4 +93,24 @@ h3 {
 
 footer {
     font-weight: var(--font-weight-light);
+}
+
+[data-highlight-title="true"] h1, 
+[data-highlight-title="true"] h2,
+[data-highlight-title="true"] h3 {
+   text-decoration: underline;
+}
+
+[data-highlight-title="false"] h1, 
+[data-highlight-title="false"] h2,
+[data-highlight-title="false"] h3 {
+    text-decoration: none;
+}
+
+[data-highlight-link="true"] a {
+   text-decoration: underline;
+}
+
+[data-highlight-link="false"] a {
+    text-decoration: none;
 }

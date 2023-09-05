@@ -26,8 +26,8 @@ router.get('/', async (req, res, next) => {
       } else {
           console.error('Users is not an array:', users);
       }
-
-        res.render('leaderboard', { users, topUsers, loggedInUserId });
+        const currentUser = req.session.user ? req.session.user : null;
+        res.render('leaderboard', { users, topUsers, loggedInUserId,currentUser });
     } catch (err) {
         next(err);
     }

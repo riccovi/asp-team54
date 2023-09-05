@@ -12,10 +12,10 @@
     
                 <div class="menu-navigation hide-on-start" id="mobile-navigation">
                     <li class="navigation-item"><a href="/explore">Explore</a></li>
-                    <li class="navigation-item"><a href="/leaderboard">Leaderboards</a></li>
+                    <!-- <li class="navigation-item"><a href="/leaderboard">Leaderboards</a></li> -->
     
-                    <% if (!user) { %>
-                        <li class="navigation-item sign-in-desktop"><a href="login">Sign in<Input:b></Input:b></a></li>
+                    <% if (!currentUser) { %>
+                        <li class="navigation-item sign-in-desktop"><a href="/login">Log in<Input:b></Input:b></a></li>
                     <% } %>
     
     
@@ -28,18 +28,21 @@
                             <li class="navigation-item" id="off"><a>Accessibility menu: Off</a></li>
                         </div>
 
-                        <% if (user) { %>
+                        <%if (currentUser) { %>
                             <hr class="line-spacer">
                             <li class="navigation-item"><a href="/profile">View profile</a></li>
                             <li class="navigation-item"><a href="/logout">Logout</a></li> <!-- Show logout button only if user is logged in -->
                         <% } else { %>
                             <hr class="line-spacer">
-                            <li class="navigation-item"><a href="login">Sign in<Input:b></Input:b></a></li>
+                            <li class="navigation-item"><a href="/login">Log in<Input:b></Input:b></a></li>
                         <% } %>
                     </div>
                 </div>
             </div>
             
+            <% if (currentUser) { %>
+                <a href="/profile"><img src="/<%= currentUser.profile_picture %>" class="account-image"></a> <!-- Show profile button only if user is logged in -->
+            <% } %>
     
             <div class="settings-navigation">
                 <div class="settings-menu">
@@ -58,17 +61,13 @@
                         </div>
                         
 
-                        <% if (user) { %>
+                        <% if (currentUser) { %>
                             <hr class="line-spacer">
                             <li class="navigation-item"><a href="/logout">Logout</a></li> <!-- Show logout button only if user is logged in -->
                         <% } %>
                     </ul>
                 </div>
             </div>
-    
-            <% if (user) { %>
-                <a href="/profile"><img src="<%= user.profile_picture %>" class="account-image"></a> <!-- Show profile button only if user is logged in -->
-            <% } %>
         </ul>
     </nav>
 </header>

@@ -7,7 +7,7 @@ const Follow = require('../models/Follow');
 router.post("/:userId/follow", checkAuth, async (req, res, next) => {
   const targetUserid = req.params.userId;
   const followerUserid = req.session.user.id;
-  
+  console.log(followerUserid,targetUserid)
   try {
     const result = await Follow.toggleFollow(followerUserid,targetUserid);
     res.redirect('back'); 

@@ -53,9 +53,10 @@ async function fetchProjectById(req, res, next) {
     const comments = await Comment.findByProjectId(projectId);
     // If there are comments, add them to the project
     if (comments && comments.length > 0) project.latest_comments = comments;
-
+    const currentUser = req.session.user ? req.session.user : null;
+    
     // Render the project with the fetched details and the current session
-    res.render(PROJECT_VIEW, { project, session: req.session , currentUser: req.session.user });
+    res.render(PROJECT_VIEW, { project, session: req.session , currentUser});
   } catch(err) {
     next(err);
   }
@@ -71,10 +72,10 @@ async function uploadProject(req, res, next) {
   const { title, description, code } = req.body;
   const project_picture = req.file ? req.file.path : null;
   const user_id = req.session.user.id;
+  const tags = req.body.tags ? req.body.tags.split(',').map(tag => tag.trim()) : [];
 
   try {
-    // Create the new project and redirect to the profile
-    await Project.createProject({user_id, title, description, code, project_picture});
+    await Project.createProject({user_id, title, description, code, project_picture, tags});
     res.redirect("/profile");
   } catch(err) {
     next(err);
@@ -105,15 +106,15 @@ async function editProject(req, res, next) {
   const { title, description, code } = req.body;
   const user_id = req.session.user.id;
   const id = req.params.id;
+  const tags = req.body.tags ? req.body.tags.split(',').map(tag => tag.trim()) : [];
 
   try {
-    let projectData = { title, description, code, id, user_id };
+    let projectData = { title, description, code, id, user_id, tags };
 
     if (req.file) {
-      // User has uploaded a new image
       projectData.project_picture = req.file.path;
     }
-    // Edit the project and redirect to the profile
+
     const changes = await Project.editProjectById(projectData);
     if (changes === 0) {
       return res.status(404).json({ message: "Project not found or you don't own this project." });
@@ -123,6 +124,7 @@ async function editProject(req, res, next) {
     next(err);
   }
 }
+
 
 
 
@@ -143,6 +145,10 @@ async function renderProjectEditPage(req, res, next) {
     next(err);
   }
 }
+
+
+
+
 
 
 

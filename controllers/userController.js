@@ -44,6 +44,7 @@ async function login(req, res, next) {
 
     // Create session
     req.session.user = user;
+    currentUser =req.session.user;
     res.redirect("/profile");
   } catch (err) {
     err.message = 'Error while fetching the user';

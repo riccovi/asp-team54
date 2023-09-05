@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/accessibility.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/explore.css">
     <script src="/js/menu-button.js" defer ></script>
     <script src="/js/showAccessibility.js" defer ></script>
     <script src="/js/accessibility-button.js" defer ></script>
     <script src="/js/accessibility.js" defer ></script>
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>PixelPulse Explore</title>
 </head>
 <body>
@@ -22,31 +21,289 @@
 
     <%- include('partials/accessibilityMenu') %>
 
-    <main class="container">
-        <!-- Page header -->
-        <header class="mt-4 mb-5">
-            <h1 class="display-4 text-center">Explore</h1>
-            <p class="lead text-center">Discover new users and their fascinating projects</p>
-        </header>
+    <main>
+        <h2 class="sub-heading">Welcome to</h2>
+        <h1 class="main-heading">PixelPulse Explore</h1>
 
-        <!-- Search Bar -->
-        <section class="mb-5">
-            <form class="form-inline justify-content-center">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search users or projects" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </section>
+        <h1 class="level-heading">Level 4</h1>
+
+        <div class="level-row">
+            <div class="module-card">
+                <img src="/images/itp1.png" class="module-icon">
+                <h2 class="module-title">Introduction to Programming I</h2>
+                <p class="module-description">Coursework I (50%) <br>Coursework II (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Introduction to Programming I' || tag.module_name == 'IP I'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/itp2.png" class="module-icon">
+                <h2 class="module-title">Introduction to Programming II</h2>
+                <p class="module-description">Coursework I (30%) <br>Coursework II (70%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Introduction to Programming II' || tag.module_name == 'IP II'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/cm.png" class="module-icon">
+                <h2 class="module-title">Computational Mathematics</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Computational Mathematics'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/dm.png" class="module-icon">
+                <h2 class="module-title">Discrete Mathematics</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Discrete Mathematics'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/hcw.png" class="module-icon">
+                <h2 class="module-title">How Computers Work</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'How Computers Work'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/fcs.png" class="module-icon">
+                <h2 class="module-title">Fundamentals of computer science</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Fundamentals of computer science'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/wd.png" class="module-icon">
+                <h2 class="module-title">Web Development</h2>
+                <p class="module-description">Coursework I (30%) <br>Coursework II (70%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Web Development'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/ads1.png" class="module-icon">
+                <h2 class="module-title">Algorithms and data structures I</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Algorithms and data structures I'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+        </div>
+
+        <h1 class="level-heading">Level 5</h1>
+
+        <div class="level-row">
+            <div class="module-card">
+                <img src="/images/oop.png" class="module-icon">
+                <h2 class="module-title">Object Oriented Programming</h2>
+                <p class="module-description">Coursework I (50%) <br>Coursework II (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Object Oriented Programming'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/sdd.png" class="module-icon">
+                <h2 class="module-title">Software design and development</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Software design and development'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/dnw.png" class="module-icon">
+                <h2 class="module-title">Databases, networks and the web</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Databases, networks and the web'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/asp.png" class="module-icon">
+                <h2 class="module-title">Agile software projects</h2>
+                <p class="module-description">Coursework I (30%) <br>Coursework II (70%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Agile software projects'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/csec.png" class="module-icon">
+                <h2 class="module-title">Computer security</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Computer security'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/gp.png" class="module-icon">
+                <h2 class="module-title">Graphics programming</h2>
+                <p class="module-description">Coursework I (50%) <br>Coursework II (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Graphics programming'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/ads2.png" class="module-icon">
+                <h2 class="module-title">Algorithms and data structures II</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Algorithms and data structures II'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/pwd.png" class="module-icon">
+                <h2 class="module-title">Programming with data</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Programming with data'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+        </div>
+        
+        <h1 class="level-heading">Level 6</h1>
+
+        <div class="level-row">
+            <div class="module-card">
+                <img src="/images/ds.png" class="module-icon">
+                <h2 class="module-title">Data Science</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Data Science'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/dadt.png" class="module-icon">
+                <h2 class="module-title">Databases and advanced data techniques</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Databases and advanced data techniques'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/mlnn.png" class="module-icon">
+                <h2 class="module-title">Machine learning and neural networks</h2>
+                <p class="module-description">Coursework I (50%) <br>Coursework II (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Machine learning and neural networks'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/ai.png" class="module-icon">
+                <h2 class="module-title">Artificial intelligence</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Artificial intelligence'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/vr.png" class="module-icon">
+                <h2 class="module-title">Virtual reality</h2>
+                <p class="module-description">Coursework I (30%) <br>Coursework II (70%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Virtual reality'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/gd.png" class="module-icon">
+                <h2 class="module-title">Games development</h2>
+                <p class="module-description">Coursework I (30%) <br>Coursework II (70%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Games development'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/awd.png" class="module-icon">
+                <h2 class="module-title">Advanced Web Development</h2>
+                <p class="module-description">Coursework I (50%) <br>Coursework II (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Advanced Web Development'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+    
+            <div class="module-card">
+                <img src="/images/pciot.png" class="module-icon">
+                <h2 class="module-title">Physical computing and the internet of things</h2>
+                <p class="module-description">Coursework I (30%) <br>Coursework II (70%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Physical computing and the internet of things'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+
+            <div class="module-card">
+                <img src="/images/ga.png" class="module-icon">
+                <h2 class="module-title">3D Graphics and animation</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == '3D Graphics and animation'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+
+            <div class="module-card">
+                <img src="/images/md.png" class="module-icon">
+                <h2 class="module-title">Mobile development</h2>
+                <p class="module-description">Coursework I (30%) <br>Coursework II (70%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Mobile development'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+
+            <div class="module-card">
+                <img src="/images/id.png" class="module-icon">
+                <h2 class="module-title">Interaction design</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Interaction design'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+
+            <div class="module-card">
+                <img src="/images/nlp.png" class="module-icon">
+                <h2 class="module-title">Natural language processing</h2>
+                <p class="module-description">Coursework (50%) <br>Examination (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Natural language processing'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+
+            <div class="module-card">
+                <img src="/images/isp.png" class="module-icon">
+                <h2 class="module-title">Intelligent signal processing</h2>
+                <p class="module-description">Coursework I (50%) <br>Coursework II (50%)</p>
+                <% postsnum = 0; if (tags){ tags.forEach(tag => {if (tag.module_name == 'Intelligent signal processing'){postsnum = tag.post_count}})%>
+                    <p class="module-post-number">Posts: <%= postsnum %></p>
+                    <%}%>
+            </div>
+        </div>
+        
+
 
         <!-- User and Projects section -->
-        <section class="py-5 bg-light">
-            <%- include('partials/userCard') %>
-        </section>
+
     </main>
   
     <%- include('partials/footer') %>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

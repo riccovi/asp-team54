@@ -12,9 +12,9 @@ const UserService = require('../services/userService');
 router.get('/', async (req, res, next) => {
     try {
         const data = await Service.getDataWithEntities(); // Fetch  data 
-
+        const tags = await Service.getTags();
         const users = await UserService.buildUserStructure(data); // Build user data structure
-        res.render('explore', { users, currentUser: req.session.user });
+        res.render('explore', { tags,users, currentUser: req.session.user });
 
     } catch (err) {
         next(err); // On error, pass to error handling middleware

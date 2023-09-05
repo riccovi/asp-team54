@@ -58,6 +58,23 @@ class Service {
         });
     });
 }
+static async getTags() {
+    return new Promise((resolve, reject) => {
+        let sql = `
+        SELECT 
+            Tags.name AS module_name,
+            COUNT(DISTINCT Projects.id) AS post_count
+        FROM Tags
+        LEFT JOIN ProjectTags ON Tags.id = ProjectTags.tag_id
+        LEFT JOIN Projects ON ProjectTags.project_id = Projects.id
+        GROUP BY Tags.name;
+        `;
+        db.all(sql, (err, rows) => {
+            if (err) reject(err);
+            else resolve(rows);
+        });
+    });
+}
 
 
 

@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: last baseline;
     justify-content: center;
-    gap: 450px;
+    gap: 550px;
     padding-top: 20px;
 }
 
@@ -23,7 +23,6 @@
 .navigation-item,
 .navigation-item a {
     cursor: pointer;
-    text-decoration: none;
 }
 
 .navigation-item:hover,
@@ -109,7 +108,8 @@
     padding-right: 20px;
 }
 
-.line-spacer {
+.burger-list .line-spacer,
+.mobile-settings .line-spacer {
     height: .5px;
     border: none;
     margin-bottom: 20px;
@@ -157,7 +157,7 @@
 @media (min-width: 768px) and (max-width: 1023px) {
     /* Styles for tablet devices */
     .primary-navigation {
-        gap: 180px;
+        gap: 290px;
     }
 }
 
@@ -167,7 +167,7 @@
         justify-content: space-between;
         align-items: center;
         gap: 0px;
-        padding-inline: 20px;
+        padding-left: 10px;
     }
 
     .settings-navigation,
@@ -178,6 +178,7 @@
     .navigation-heading,
     .mobile-settings {
         display: block;
+        cursor: pointer;
     }
 
     .account-image {

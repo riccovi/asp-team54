@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/accessibility.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/loginForm.css">
+    <script src="/js/accessibility.js" defer ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600&display=swap" rel="stylesheet">
+    <title>PixelPulse - EditProfile</title>
+</head>
+<body>
+    <a href="/">
+        <img src="/images/left-arrow-light.png" class="back-image" id="back-image-light">
+        <img src="/images/left-arrow-dark.png" class="back-image" id="back-image-dark">
+    </a>
+
+    <main>
+        <section class="login-section">
+            <div class="form-container">
+                <h1 class="form-heading">Edit Profile</h1>
+                <p class="form-subheading">Please enter your details</p>
+                <form action="/profile/update" method="POST" enctype="multipart/form-data">
+                    <div>
+                      <div class="form-group">
+                          <label for="username">Username:</label>
+                          <input type="text" class="form-control" id="username" name="username" value="<%= user.username %>">
+                      </div>
+                      <div class="form-group">
+                          <label for="email">Email:</label>
+                          <input type="email" class="form-control" id="email" name="email" value="<%= user.email %>">
+                      </div>
+                      <div class="form-group">
+                          <label for="role">Role:</label>
+                          <input type="text" class="form-control" id="role" name="role" value="<%= user.role %>">
+                      </div>
+                      <div class="form-group">
+                          <label for="profile_picture">Profile Picture:</label>
+                          <input type="file" class="form-control-file" id="profile_picture" name="profile_picture">
+                      </div>
+                    </div>
+                    <button type="submit">Save changes</button>
+                  </form>
+               
+            </div>
+
+            
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <!-- Same scripts as your signup.html -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

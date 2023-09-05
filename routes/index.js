@@ -14,6 +14,8 @@ const likeController = require('../controllers/likeController');
 const followController = require('../controllers/followController');
 const commentController = require('../controllers/commentController');
 
+const searchController = require('../controllers/searchController');
+
 const profileController = require('../controllers/profileController'); 
 
 const exploreController = require('../controllers/exploreController');
@@ -25,11 +27,31 @@ const Follow = require('../models/Follow');
 
 
 // Routes
-router.get('/', (req, res) => res.render("index"));  // Home page
+// router.get('/', (req, res) => res.render("index"));
+
+// Home page, currently copied and pasted the leaderboards code into here, needs refactoring
+const Service = require('../models/Service');
+const UserService = require('../services/userService');
+
+router.get('/', async (req, res, next) => {
+    try {
+        const data = await Service.getLeaderboard(); // Fetch leaderboard data
+        const users = await UserService.buildUserStructure(data); // Build user data for the leaderboard
+        const topUsers = await Service.getTopUsers();
+        const currentUser = req.session.user ? req.session.user : null;
+        res.render('index', { users, topUsers,currentUser });
+    } catch (err) {
+        next(err); // On error, pass to error handling middleware
+    }
+});
+
+
 router.get("/signup", (req, res) => res.render("signup"));  // Signup page
 router.get("/login", (req, res) => res.render("login"));  // Login page
+router.get("/about", (req, res) => res.render("about"));
 router.get('/logout', userController.logout);  // Logout route
 
+router.get('/search', searchController.searchUsers);
 router.get("/upload", checkAuth, (req, res) => res.render('projectUpload'));  // Upload form page
 //router.get("/upload", projectController);
 //router.get("/upload", checkAuth, projectController.renderUploadPage); // Upload form page

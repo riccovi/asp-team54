@@ -71,6 +71,15 @@ const tables = [
         created_at TEXT DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY(follower_id) REFERENCES Users(id),
         FOREIGN KEY(following_id) REFERENCES Users(id)
+    )`,
+    `CREATE TABLE IF NOT EXISTS Tags (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT UNIQUE NOT NULL
+    )`,
+    `CREATE TABLE IF NOT EXISTS ProjectTags (
+        project_id INTEGER REFERENCES Projects(id),
+        tag_id INTEGER REFERENCES Tags(id),
+        PRIMARY KEY (project_id, tag_id)
     )`
 ];
 

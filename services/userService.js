@@ -1,11 +1,15 @@
 const Comment = require('../models/Comment');
 const Service = require('../models/Service');
 
+function calculateScore(project) {
+    return (project.likes + project.comments.length * 2) / 3;
+}
 class UserService {
    
 
     static async  buildUserStructure(data) {
         let users = [];
+        let sortedUsers = [];
         let currentUserId = -1;
         let currentUser = null;
     
@@ -21,6 +25,7 @@ class UserService {
                     profile_picture: row.profile_picture,
                     projects: [],
                 };
+                
                 users.push(currentUser); // Add the new user to the users array
             }
     
@@ -52,8 +57,27 @@ class UserService {
                 currentUser.projects.push(project);
             }
         }
-        return users;
+        for (let user of users) {
+            if (user.projects && user.projects.length > 0) {
+                for (let project of user.projects) {
+                    let userCopy = JSON.parse(JSON.stringify(user)); // Deep copy to avoid reference
+                    userCopy.projects = [project];  // Each user in sortedUsers will have one project
+                    sortedUsers.push(userCopy);
+                }
+            }
+        }
+        
+        // Sort the 'sortedUsers' array based on the score of their single project
+        sortedUsers.sort((a, b) => {
+            let scoreA = calculateScore(a.projects[0]);
+            let scoreB = calculateScore(b.projects[0]);
+            return scoreB - scoreA; // For descending order
+        });
+        return sortedUsers;
+       
     }
+
 }
+
 
 module.exports = UserService;
