@@ -1,50 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/accessibility.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/loginForm.css">
+    <script src="/js/showAccessibility.js" defer ></script>
+    <script src="/js/accessibility.js" defer ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600&display=swap" rel="stylesheet">
+    <title>PixelPulse - Login</title>
+</head>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/javascript/javascript.min.js"></script>
+<body>
+    <%- include('partials/navbar') %>
 
-
-<form action="/project/<%= project.id %>" method="POST">
-    <input type="hidden" name="_method" value="PUT">
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" name="title" value="<%= project.title %>">
-    </div>
-    <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" id="description" name="description"><%= project.description %></textarea>
-    </div>
-    <div class="form-group">
-        <label for="code">Code</label>
-        <div id="codemirrorContainer"></div>
-        <input type="hidden" id="projectCode" name="code" value="<%= project.code %>">
-    </div>
+    <%- include('partials/accessibilityMenu') %>
     
-    <div class="form-group">
-        <label for="project_picture">Project Picture</label>
-        <input type="file" class="form-control-file" id="project_picture" name="project_picture">
-        <img src="/<%= project.project_picture %>" alt="Current project picture">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <main>
+        <section class="login-section">
+            <div class="form-container">
+                <h1 class="form-heading">Edit</h1>
+                <p class="form-subheading">Please enter your new details</p>
+                <form action="/project/<%= project.id %>" method="post">
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="form-group">
+                        <label class="form-label" for="title">Title</label>
+                        <input class="form-input" type="text" id="title" name="title" class="form-control" required value="<%= project.title %>">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="description">Description</label>
+                        <input class="form-input" type="text" id="description" name="description" class="form-control" required value="<%= project.description %>">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="project_picture">Project Picture</label>
+                        <input type="file" id="project_picture" name="project_picture">
+                        <img src="/<%= project.project_picture %>" alt="Current project picture">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="code">Code</label>
+                        <div id="codemirrorContainer"></div>
+                        <input type="hidden" id="projectCode" name="code" value="<%= project.code %>">
+                    </div>
 
-   <script>
-    window.onload = function() {
-        var myCodeMirror = CodeMirror(document.getElementById('codemirrorContainer'), {
-            lineNumbers: true, // Show line numbers
-            theme: 'darcula', // Set the theme
-            mode: 'javascript' // Set the language
-        });
+                    <button class="form-button" type="submit">Submit</button>
+                </form>
+            </div>
 
-        myCodeMirror.on('change', function(cm){
-    // update textarea content on any change in editor
-    document.getElementById('projectCode').value = btoa(cm.getValue());
-});
+            <div class="login-image-container">
+                <img src="/images/logotext-light.png" alt="PixelPulse Logo" class="login-image" id="logo-text-light">
+                <img src="/images/logotext-dark.png" alt="PixelPulse Logo" class="login-image" id="logo-text-dark">
+            </div>
+        </section>
+    </main>
 
+    <%- include('partials/footer') %>
 
-        // Decode the base64-encoded code before setting it as the value of the CodeMirror editor
-        myCodeMirror.setValue(atob('<%= project.code %>')); // set current code into editor
-    }
-</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css">
+    <script>
+        window.onload = function() {
+            var myCodeMirror = CodeMirror(document.getElementById('codemirrorContainer'), {
+                lineNumbers: true, // Show line numbers
+                theme: 'darcula', // Set the theme
+                mode: 'javascript' // Set the language
+            });
 
-
+            myCodeMirror.on('change', function(cm){
+                // update textarea content on any change in editor
+                document.getElementById('projectCode').value = btoa(cm.getValue());
+            });
+            // Decode the base64-encoded code before setting it as the value of the CodeMirror editor
+            myCodeMirror.setValue(atob('<%= project.code %>')); // set current code into editor
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/javascript/javascript.min.js"></script>
+</body>
+</html>

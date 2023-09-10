@@ -1,0 +1,191 @@
+.main-project-header-container {
+    display: flex;
+    justify-content: center;
+}
+
+.project-header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 700px;
+    margin-bottom: -15px;
+}
+
+.likes-user-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 700px;
+    margin-bottom: 60px;
+}
+
+.project-header-user-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-page-user-image {
+    display: block;
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.project-page-description {
+    padding-inline: 75px;
+    margin-bottom: 30px;
+}
+
+.coding-area {
+    --window-width: 100vw;
+
+    display: flex;
+    width: calc(var(--window-width) - 150px);
+    height: 500px;
+    margin-inline: 75px;
+}
+
+.code-editor {
+    width: 40%;
+}
+
+.code-editor * {
+    color: rgb(210, 210, 210);
+}
+
+.code-preview {
+    width: 60%;
+    height: inherit;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.project-line {
+    height: .5px;
+    border: none;
+    background-color: var(--font-color);
+    margin-block: 30px;
+}
+
+.project-delete-button {
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 105, 97);
+    color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.project-edit-button {
+    width: 60px;
+    height: 30px;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(79, 96, 125);
+    color: rgb(230, 230, 230);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.project-like-button {
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+    padding-inline: 75px;
+}
+
+.project-like-button:hover {
+    cursor: pointer;
+}
+
+.project-comments-container {
+    margin-left: 200px;
+    margin-bottom: 60px;
+}
+
+.project-comment-heading-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project-comment-container {
+    margin-bottom: 20px;
+    width: 500px;
+    padding-inline: 10px;
+    padding-block: 5px;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.project-comment-author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+}
+
+.project-add-comment-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.project-add-comment-textbox {
+    background: transparent;
+    border: none;
+    resize: none;
+    width: 80%;
+    height: 35px;
+}
+
+.project-comment-button {
+    width: 50px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(79, 96, 125);
+    color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+[data-dark-mode="true"] #project-like-light,
+[data-dark-mode="false"] #project-like-dark {
+    display: none;
+}
+
+[data-dark-mode="false"] #project-like-light,
+[data-dark-mode="true"] #project-like-dark {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .likes-user-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .project-page-description {
+        padding-inline: 0;
+    }
+
+    .coding-area {
+        --window-width: 100vw;
+
+        width: var(--window-width);
+        margin-inline: 0;
+
+        height: 200px;
+    }
+}
