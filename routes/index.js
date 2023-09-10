@@ -48,11 +48,53 @@ router.get('/', async (req, res, next) => {
 
 router.get("/signup", (req, res) => res.render("signup"));  // Signup page
 router.get("/login", (req, res) => res.render("login"));  // Login page
-router.get("/about", (req, res) => res.render("about"));
-router.get("/help", (req, res) => res.render("help"));
-router.get("/creators", (req, res) => res.render("creators"));
-router.get("/privacy_policy", (req, res) => res.render("privacyPolicy"));
-router.get("/terms_of_service", (req, res) => res.render("termsOfService"));
+
+
+router.get('/about', async (req, res, next) => {
+    try {
+        const currentUser = req.session.user ? req.session.user : null;
+        res.render('about', { currentUser });
+    } catch (err) {
+        next(err); // On error, pass to error handling middleware
+    }
+});
+
+router.get('/help', async (req, res, next) => {
+    try {
+        const currentUser = req.session.user ? req.session.user : null;
+        res.render('help', { currentUser });
+    } catch (err) {
+        next(err); // On error, pass to error handling middleware
+    }
+});
+
+router.get('/creators', async (req, res, next) => {
+    try {
+        const currentUser = req.session.user ? req.session.user : null;
+        res.render('creators', { currentUser });
+    } catch (err) {
+        next(err); // On error, pass to error handling middleware
+    }
+});
+
+router.get('/privacy_policy', async (req, res, next) => {
+    try {
+        const currentUser = req.session.user ? req.session.user : null;
+        res.render('privacyPolicy', { currentUser });
+    } catch (err) {
+        next(err); // On error, pass to error handling middleware
+    }
+});
+
+router.get('/terms_of_service', async (req, res, next) => {
+    try {
+        const currentUser = req.session.user ? req.session.user : null;
+        res.render('termsOfService', { currentUser });
+    } catch (err) {
+        next(err); // On error, pass to error handling middleware
+    }
+});
+
 router.get('/logout', userController.logout);  // Logout route
 
 router.get('/search', searchController.searchUsers);

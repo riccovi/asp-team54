@@ -59,6 +59,17 @@
   
         <div class="profile-card">
           <% let displayUploadCard = true; %>
+
+          <!-- If they have no project still show the upload project -->
+          <% if(projects.length == 0) { %>
+            <div class="upload-project">
+              <a href="/upload" class="upload-link">
+                <img src="/images/upload-icon-light.png" class="upload-icon" id="upload-icon-light">
+                <img src="/images/upload-icon-dark.png" class="upload-icon" id="upload-icon-dark">
+                <p>Upload Project</p>
+              </a>
+            </div>
+          <% } %>
   
           <% projects.forEach(project => { %>
             <% if(displayUploadCard) { %>

@@ -69,7 +69,7 @@
 
 .search-input {
     height: 40px;
-    width: 80%;
+    width: 100%;
     background-color: var(--search-input-color);
     border: none;
     border-radius: 20px;
@@ -132,8 +132,141 @@
 }
 
 .project-container {
-    padding-left: 40px;
+    margin-inline: 40px;
     width: 65%;
+}
+
+.all-projects-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.project-card {
+    width: 80%;
+    padding-block: 10px;
+    border-radius: 30px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.project-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: -5px;
+    padding-inline: 10px;   
+}
+
+.project-user-image {
+    display: block;
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.project-user-dot {
+    font-size: 8px;
+}
+
+.project-user-role {
+    font-weight: var(--font-weight-light);
+}
+
+.project-user,
+.project-title,
+.project-description,
+.project-likes,
+.project-comments,
+.project-comment-form,
+.no-comments,
+.no-projects,
+.project-like-button {
+    padding-inline: 30px;
+}
+
+.project-link {
+    width: inherit;
+}
+
+.project-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.project-line-spacer {
+    height: .5px;
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 93%;
+    background-color: var(--font-color);
+}
+
+.project-like-button {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.project-like-button:hover {
+    cursor: pointer;
+}
+
+.project-comment-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.project-comments {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project-comment-text {
+    background: transparent;
+    border: none;
+    resize: none;
+    width: 85%;
+    height: 35px;
+}
+
+.project-comment-text:not(:focus-within) {
+    outline: none;
+}
+
+.project-comment-button {
+    width: 50px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(79, 96, 125);
+    color: rgb(230, 230, 230);
+}
+
+.project-comment-delete-button {
+    width: 70px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 105, 97);
+    color: rgb(230, 230, 230);
+}
+
+.project-comment-button:hover,
+.project-comment-delete-button:hover {
+    cursor: pointer;
 }
 
 [data-dark-mode="true"] #search-icon-light,
@@ -153,6 +286,16 @@
 
 [data-dark-mode="false"] #leaderboard-icon-light,
 [data-dark-mode="true"] #leaderboard-icon-dark {
+    display: block;
+}
+
+[data-dark-mode="true"] #project-like-light,
+[data-dark-mode="false"] #project-like-dark {
+    display: none;
+}
+
+[data-dark-mode="false"] #project-like-light,
+[data-dark-mode="true"] #project-like-dark {
     display: block;
 }
 
@@ -186,7 +329,7 @@
     }
 
     .search-input {
-        width: 250px;
+        width: 100%;
     }
 
     .leaderboard-container {
@@ -199,6 +342,10 @@
 
     .project-container {
         width: 60%;
+    }
+
+    .project-card {
+        width: 300px;
     }
 }
 
@@ -243,7 +390,7 @@
     }
 
     .search-input {
-        width: 250px;
+        width: 300px;
     }
 
     .home-container {
@@ -252,8 +399,12 @@
     }
 
     .project-container {
-        padding-left: 0;
+        margin-inline: 0;
         width: 350px;
         justify-content: center;
+    }
+
+    .project-card {
+        width: 350px;
     }
 }
