@@ -39,7 +39,9 @@ async function login(req, res, next) {
     const result = await bcrypt.compare(password, user.password);
 
     if (!result) {
-      return res.status(401).json({ message: 'Incorrect password.' });
+    
+      return res.redirect("/login");
+      
     }
 
     // Create session

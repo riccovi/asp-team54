@@ -68,7 +68,7 @@
         </div>
     
         <div class="profile-card"> 
-            <% user.projects.forEach(project => { %>
+            <% user.projects.forEach(project => {  console.log(project)%>
                 <a href="/project/<%= project.id %>" class="profile-card-link">
                     <img src="/<%= project.project_picture || '/images/default_project_image.jpg' %>" alt="<%= project.title %>" class="profile-card-image">
                     <div class="profile-card-body">

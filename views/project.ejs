@@ -28,7 +28,11 @@
                             <div class="card-subtitle text-muted">Likes: <%= project.likes %>, Comments: <%= project.comments %></div>
                              <!-- Add Like and View Project buttons -->
                             <div class="card-subtitle text-muted">
+                                <% if (session.user) { if (isLiking){%>
+                                    <button type="button" data-project-id="<%= project.id %>" class="btn btn-outline-primary like-button"><i class="fas fa-heart"></i> Liked</button>
+                                <% } else {%>
                             <button type="button" data-project-id="<%= project.id %>" class="btn btn-outline-primary like-button"><i class="fas fa-heart"></i> Like</button>
+                            <%}}%>
                             </div>
                         </div>
                        
