@@ -1,0 +1,33 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.information-container {
+    width: 80%;
+    margin-bottom: var(--section-spacing);
+    line-height: 1.6;
+}
+
+.privacy-policy-link:hover {
+    cursor: pointer;
+    color: var(--font-highlighted-color);
+    text-decoration: underline;
+}
+
+.line-spacer {
+    height: .5px;
+    border: none;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    width: 100%;
+    background-color: var(--font-color);
+}
+
+@media (max-width: 767px) {
+    /* Styles for mobile devices */
+    .information-container {
+        margin-top: -70px;
+        width: 99%;
+    }
+}

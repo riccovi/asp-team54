@@ -4,15 +4,10 @@
     --font-weight-light: 200;
     --font-weight-regular: 400;
     --font-weight-bold: 600;
-
-    --font-size: 14px;
+    
     --paragraph-letter-spacing: 0px;
     
-    --header-font-size: 16px;
     --heading-letter-spacing: -.75px;
-    --main-heading-font-size: 30px;
-    --secondary-heading-font-size: 22px;
-    --third-heading-font-size: 16px;
 
     --accessibility-menu-font-size: 10px;
     --accessibility-widget-spacing: 16px;
@@ -21,8 +16,6 @@
 
     --button-color: rgb(41, 50, 65);
     --button-highlighted-color: rgb(152, 193, 217);
-
-    --footer-font-size: 12px;
 
     --section-spacing: 80px;
 }
@@ -113,4 +106,71 @@ footer {
 
 [data-highlight-link="false"] a {
     text-decoration: none;
+}
+
+[data-larger-font="false"] {
+    --font-size: 14px;
+
+    --header-font-size: 16px;
+    --main-heading-font-size: 30px;
+    --secondary-heading-font-size: 22px;
+    --third-heading-font-size: 16px;
+
+    --footer-font-size: 12px;
+}
+
+[data-larger-font="true"] {
+    --font-size: 20px;
+
+    --header-font-size: 22px;
+    --main-heading-font-size: 36px;
+    --secondary-heading-font-size: 28px;
+    --third-heading-font-size: 22px;
+
+    --footer-font-size: 18px;
+}
+
+[data-contrast="high"] *:not(.accessibility-container) {
+    filter: contrast(110%);
+}
+
+[data-contrast="low"] *:not(.accessibility-container) {
+    filter: contrast(90%);
+}
+
+[data-saturation="high"] *:not(.accessibility-container) {
+    filter: saturate(120%);
+}
+
+[data-saturation="low"] *:not(.accessibility-container) {
+    filter: saturate(80%);
+}
+
+[data-saturation="monochrome"] *:not(.accessibility-container) {
+    filter: grayscale(100%);
+}
+
+/* All of the possible combinations of saturation and contrast */
+[data-contrast="high"][data-saturation="low"] *:not(.accessibility-container) {
+    filter: contrast(110%) saturate(80%);
+}
+
+[data-contrast="high"][data-saturation="high"] *:not(.accessibility-container) {
+    filter: contrast(110%) saturate(120%);
+}
+
+[data-contrast="high"][data-saturation="monochrome"] *:not(.accessibility-container) {
+    filter: contrast(110%) grayscale(100%);
+}
+
+[data-contrast="low"][data-saturation="low"] *:not(.accessibility-container) {
+    filter: contrast(90%) saturate(80%);
+}
+
+[data-contrast="low"][data-saturation="high"] *:not(.accessibility-container) {
+    filter: contrast(90%) saturate(120%);
+}
+
+[data-contrast="low"][data-saturation="monochrome"] *:not(.accessibility-container) {
+    filter: contrast(90%) grayscale(100%);
 }

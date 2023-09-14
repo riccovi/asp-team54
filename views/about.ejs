@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/accessibility.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/informationalPages.css">
     <script src="/js/menu-button.js" defer ></script>
     <script src="/js/showAccessibility.js" defer ></script>
     <script src="/js/accessibility-button.js" defer ></script>
@@ -21,7 +22,48 @@
     <%- include('partials/accessibilityMenu') %>
    
     <main>
-        <h1>This is the about page</h1>
+        <div class="information-container">
+            <h1>Frequently asked questions</h1>
+            <hr class="line-spacer">
+
+            <h2>What is PixelPulse?</h2>
+            <p>PixelPulse is a web application designed for University of London students, specifically those taking the BSc Computer Science program.
+                <br><br>
+                It is an application that serves two main purposes:
+                <br><br>
+                - A University of London portfolio. All your posts are saved to your account, and can be viewed by anyone that uses PixelPulse.
+                <br>
+                - A tool for revision. Each post most be tagged to a specific module within the program, when you as a student need to revise, or get inspiration for coding projects, you can view the submissions of other students.
+                <br><br>
+                We designed PixelPulse to be similar to many social media platforms, to encourage users to be on, and contribute, to the platform. 
+            </p>
+
+            <h2>How will PixelPulse be useful to me as a UoL student?</h2>
+            <p>ASP Team 54 believe that one of the problems with being a distance learning University of London student is the lack of inspiration and revision materials. We believe in interaction, and we feel that the best way to succeed and build amazing projects is to engage with other students.
+                <br><br>
+                That being said we also believe that if you can teach the material, then you have a strong understanding of the topic. Part of becoming better as a programmer is to code, and if you create applications that other students can use to revise then you aren't just improving your skills as a coder, but you are improving your understanding of the theoretical modules as well.
+            </p>
+
+            <h2>Can other students copy my code?</h2>
+            <p>No. That would be considered plagarism. We at PixelPulse are trying to ensure your code is kept safe and we are at work trying to get a version of PixelPulse up and running where your code can not be inspected or copied in anyway. Unfortunately the version you are currently using isn't there yet, but PixelPulse keeps track of the date of your submission and we would be happy to help appeal your case if you feel your code has been plagarised.</p>
+
+            <h2>Is PixelPulse officially supported by University of London?</h2>
+            <p>No, but we would love for that to be the case. If you love PixelPulse your participation will allow us to make a strong argument for Univerity of London to support our platform and release it to the student body.</p>
+
+            <h2>What is the future of PixelPulse?</h2>
+            <p>We have many lovely ideas on what the next iteration of PixelPulse would look like, here's a small list of some of the ideas we have:
+                <br><br>
+                1. Recruiters would also be users on PixelPulse, and they would be given additional functionality to find the best UoL students to pontentially give internships to. As this is a platform where your work is submitted recruiters specifically linked with UoL can get direct access to some of the best students the university has to offer.
+                <br><br>
+                2. Challenges. We would love UoL lecturers and tutors to be users as well, and they can set programming challenges to students who would like to go the extra mile with their studying. These challenges wouldn't contribute to your grade but would solidify your programming knowledge and expertise.
+                <br><br>
+                3. Badges, achievements and awards. Receiving loads of likes, reaching particular milestones, or being amongst the best to complete a challenge will earn you badges and rewards. These could increase your chances of being seen by a recruiter or win you some UoL merchandise!
+                <br><br>
+                4. We would love a way to support multiple programming languages, and get a dedicated application to run on most operating systems to finally break free from the shackles of a web browser.
+                <br><br>
+                5. Bug fixes. If something doesn't work correctly... we already know. >90% of all bugs we are aware of, some of them are harder to squish than others but we are constantly working on it!
+            </p>
+        </div>
     </main>
   
     <%- include('partials/footer') %>

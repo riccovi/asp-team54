@@ -1,6 +1,7 @@
 .accessibility-button {
     position: fixed;
     left: 0;
+    z-index: 10;
     top: 100px;
     width: 30px;
     height: 30px;
@@ -194,7 +195,13 @@
 }
 
 [data-highlight-title="true"] #highlight-title,
-[data-highlight-link="true"] #highlight-link {
+[data-highlight-link="true"] #highlight-link,
+[data-larger-font="true"] #larger-font-size,
+[data-contrast="low"] #low-contrast,
+[data-contrast="high"] #high-contrast,
+[data-saturation="low"] #low-saturation,
+[data-saturation="high"] #high-saturation,
+[data-saturation="monochrome"] #monochrome {
     background-color: var(--accessibility-active-colour);
     border-color: var(--accessibility-active-colour);
 }

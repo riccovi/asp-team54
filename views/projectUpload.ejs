@@ -4,63 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/darcula.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/javascript/javascript.min.js"></script>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/accessibility.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/loginForm.css">
+    <script src="/js/showAccessibility.js" defer ></script>
+    <script src="/js/accessibility.js" defer ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600&display=swap" rel="stylesheet">
     <title>PixelPulse - Edit Project</title>
 </head>
 <body>
     <%- include('partials/navbar') %>
+
+    <%- include('partials/accessibilityMenu') %>
+
     <main>
-        <section class="upload-section py-5">
-            <div class="container">
-                <h1 class="mb-4 text-center">Upload Your Project</h1>
-
-                <div class="upload-form">
-                    <form action="/project/upload" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="_method" value="POST">
-                        <div class="form-group">
-                            <label for="projectTitle">Project Title:</label>
-                            <input type="text" class="form-control" id="projectTitle" name="title" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="projectDescription">Project Description:</label>
-                            <textarea class="form-control" id="projectDescription" name="description" rows="3" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="projectFile">Project File:</label>
-                            <input type="file" class="form-control-file" id="projectFile" name="project_picture">
-                        </div>
-
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="coding-area row">
-                                    <div id="editor" class="col-md-6" style="height:500px;"></div>
-                                    <div class="col-md-6">
-                                        <iframe id="preview" class="w-200 h-100" style="height:500px;"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="submit-button-container my-4">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                    <div class="mt-3">
-                        <a href="/profile" class="btn btn-secondary">Back</a>
+        <section class="login-section">
+            <div class="form-container">
+                <h1 class="form-heading">Project upload!</h1>
+                <p class="form-subheading">Please enter your project details</p>
+                <form action="/project/upload" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="form-group">
+                        <label class="form-label" for="title">Title</label>
+                        <input class="form-input" type="text" id="title" name="title" class="form-control" required placeholder="Please enter a title">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label class="form-label" for="description">Description</label>
+                        <input class="form-input" type="text" id="description" name="description" class="form-control" required placeholder="Please enter a description">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="project_picture">Project Picture</label>
+                        <input type="file" id="project_picture" name="project_picture">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="code">Code</label>
+                        <div id="editor" style="height:400px;"></div>
+                    </div>
+
+                    <button class="form-button" type="submit">Submit</button>
+                </form>
+            </div>
+
+            <div class="login-image-container">
+                <img src="/images/logotext-light.png" alt="PixelPulse Logo" class="login-image" id="logo-text-light">
+                <img src="/images/logotext-dark.png" alt="PixelPulse Logo" class="login-image" id="logo-text-dark">
             </div>
         </section>
     </main>
-    <footer>
-        <%- include('partials/footer') %>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+
+    <%- include('partials/footer') %>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/darcula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css">
     <script>
         // Add Ace Editor specific scripts
         var editor;
@@ -98,5 +96,8 @@
             preview.body.appendChild(userCodeScript);
         }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
