@@ -29,9 +29,11 @@
 
     <main class="containerProject">
         <% if (project) { %>
+
             <div class="main-project-header-container">
                 <div class="project-header-container">
                     <h2 class=""><%= project.title %></h2>
+
                     
                     <div>
                         <% if (session.user && session.user.id === project.user_id) { %>
@@ -63,9 +65,11 @@
             </div>
 
             <% if (session.user && session.user.id !== project.user_id) { %>
-                <!-- if the user didn't like the post -->
+                <%if (isLiking){%>
                 <img src="/images/like-light.png" class="project-like-button like-button" data-project-id="<%= project.id %>" id="project-like-light">
+                <% } else {%>
                 <img src="/images/like-dark.png" class="project-like-button like-button" data-project-id="<%= project.id %>" id="project-like-dark">
+                <%}%>
                 <!-- After this would be an image of a filled in like button, for if the user did like the post -->
             <% } %>
 

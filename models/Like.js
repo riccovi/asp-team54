@@ -49,6 +49,16 @@ class Like {
             });
         });
     }
+    static async isLiking(projectId, userId) {
+        return new Promise((resolve, reject) => {
+            const sql = "SELECT * FROM Likes WHERE project_id = ? AND user_id = ? ";
+
+            db.get(sql, [projectId, userId], (err, row) => {
+                if (err) reject(err);
+                else resolve(!!row);  // Convert to boolean: true if row exists, false otherwise
+            });
+        });
+    }
     
 }
 

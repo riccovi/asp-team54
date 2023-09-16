@@ -6,6 +6,7 @@ const checkAuth = require('../middleware/checkAuth');  // middleware for authent
 const errorMiddleware = require('../middleware/errorMiddleware'); // middleware for error handling
 const Project = require('../models/Project'); // Project model
 const Comment = require('../models/Comment'); // Comment model
+const Like = require('../models/Like'); // Like model
 const commentController = require('./commentController'); // controller for comments
 
 const likeController = require('./likeController'); // controller for likes
@@ -51,17 +52,23 @@ async function fetchProjectById(req, res, next) {
 
     // Fetch comments for the project
     const comments = await Comment.findByProjectId(projectId);
+  
     // If there are comments, add them to the project
     if (comments && comments.length > 0) project.latest_comments = comments;
     const currentUser = req.session.user ? req.session.user : null;
-    
+    if (currentUser) {
+        var isLiking = await Like.isLiking(projectId,currentUser.id);
+        
+    } else {
+        var isLiking = false;
+    };
     // Render the project with the fetched details and the current session
-    res.render(PROJECT_VIEW, { project, session: req.session , currentUser});
+    res.render(PROJECT_VIEW, { project, session: req.session , currentUser, isLiking});
   } catch(err) {
     next(err);
   }
 }
-
+ 
 // Function to escape the code before rendering it
 function escapeCode(code) {
   return code ? Buffer.from(code).toString('base64') : code;
