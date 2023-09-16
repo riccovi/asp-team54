@@ -12,7 +12,6 @@
     
                 <div class="menu-navigation hide-on-start" id="mobile-navigation">
                     <li class="navigation-item"><a href="/explore">Explore</a></li>
-                    <!-- <li class="navigation-item"><a href="/leaderboard">Leaderboards</a></li> -->
     
                     <% if (!currentUser) { %>
                         <li class="navigation-item sign-in-desktop"><a href="/login">Log in<Input:b></Input:b></a></li>
@@ -41,13 +40,13 @@
             </div>
             
             <% if (currentUser) { %>
-                <a href="/profile"><img src="/<%= currentUser.profile_picture %>" class="account-image"></a> <!-- Show profile button only if user is logged in -->
+                <a href="/profile"><img src="/<%= currentUser.profile_picture %>" class="account-image" alt="profile image"></a> <!-- Show profile button only if user is logged in -->
             <% } %>
     
             <div class="settings-navigation">
                 <div class="settings-menu">
-                    <li class="navigation-item" aria-controls="burger-menu" aria-expanded="false" tabindex="0" id="settings-menu-light"><img src="/images/gear-light.png" class="settings-icon"></li>
-                    <li class="navigation-item" aria-controls="burger-menu" aria-expanded="false" tabindex="0" id="settings-menu-dark"><img src="/images/gear-dark.png" class="settings-icon"></li>
+                    <li class="navigation-item" aria-controls="burger-menu" aria-expanded="false" tabindex="0" id="settings-menu-light"><img src="/images/gear-light.png" class="settings-icon" alt="settings icon"></li>
+                    <li class="navigation-item" aria-controls="burger-menu" aria-expanded="false" tabindex="0" id="settings-menu-dark"><img src="/images/gear-dark.png" class="settings-icon" alt="settings icon"></li>
                 </div>
                 
                 <div class="burger-menu hide-on-start" id="burger-menu">
