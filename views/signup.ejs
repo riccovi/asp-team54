@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="/css/accessibility.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/loginForm.css">
-    <script src="/js/menu-button.js" defer ></script>
     <script src="/js/showAccessibility.js" defer ></script>
-    <script src="/js/accessibility-button.js" defer ></script>
     <script src="/js/accessibility.js" defer ></script>
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600&display=swap" rel="stylesheet">
     <title>PixelPulse - Signup</title>
@@ -22,6 +20,8 @@
         <img src="/images/left-arrow-light.png" class="back-image" id="back-image-light">
         <img src="/images/left-arrow-dark.png" class="back-image" id="back-image-dark">
     </a>
+
+    <%- include('partials/accessibilityMenu') %>
 
     <main>
         <section class="login-section signup">
@@ -50,8 +50,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="profilePicture">Profile Picture</label>
-                        <input type="file" id="profilePicture" name="profilePicture" accept="image/png, image/jpeg">
+                        <label class="form-label" for="profile_picture">Profile Picture</label>
+                        <input type="file" id="profile_picture" name="profile_picture" accept="image/png, image/jpeg">
                     </div>
 
                     <button class="form-button" type="submit">Sign Up</button>
