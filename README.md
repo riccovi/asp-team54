@@ -3,10 +3,10 @@
 1. npm install
 2. npm run dev
 
+PixelPulse runs on port 3000!
+
 ## P5JS Instance Mode
 The transformation from a simple p5.js sketch into instance mode involves encapsulating your existing p5.js code into a JavaScript function that accepts an instance of p5.js (p) as an argument. You then refer to the p5.js instance (p) whenever you want to call p5.js functions or access p5.js variables.
-
-PixelPulse runs on port 3000!
 
 # User guide
 ## Creating an account / Logging in
